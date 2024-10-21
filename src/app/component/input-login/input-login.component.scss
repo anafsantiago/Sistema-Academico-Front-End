@@ -1,0 +1,33 @@
+@import "../../../estilo/cores.scss";
+
+.input-wrapper{
+
+  color: $text-color;
+  font-size: 20px;
+  text-align: start;
+
+  label {
+
+    width: 50%; // Se quiser que a label ocupe toda a largura do contêiner
+
+  }
+
+  .input-content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+
+    input{
+
+      border: none;
+      border-radius: 8px 8px 8px 8px;
+      background-color: $gray-bg;
+      padding: 12px 0px 12px 20px;
+      width: 100%;
+
+    }
+
+  }
+
+}

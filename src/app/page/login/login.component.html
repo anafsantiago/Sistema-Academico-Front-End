@@ -1,10 +1,33 @@
-<p>Hello dear!</p>
+<app-login-layout>
 
-<form>
-  <label for="usuario">Usuário:</label>
-  <input type="text" id="usuario" name="usuario" [(ngModel)]="login.usuario">
+  <form [formGroup]="login">
 
-  <label for="senha">Senha:</label>
-  <input type="password" id="senha" name="senha" [(ngModel)]="login.senha">
-</form>
-<button (click)="autenticar()">Entrar</button>
+    <!-- Campo de Email -->
+    <mat-form-field appearance="fill">
+      <mat-label>Usuário:</mat-label>
+      <input matInput formControlName="email" placeholder="matricula@efacil.com" type="email">
+      <mat-error *ngIf="login.get('email')?.invalid && login.get('email')?.touched">
+        <span *ngIf="login.get('email')?.hasError('required')">Email é obrigatório</span>
+        <span *ngIf="login.get('email')?.hasError('email')">Formato de email inválido</span>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Campo de Senha -->
+    <mat-form-field appearance="fill">
+      <mat-label>Senha:</mat-label>
+      <input matInput formControlName="password" placeholder="Sua senha" type="password">
+      <mat-error *ngIf="login.get('password')?.invalid && login.get('password')?.touched">
+        <span *ngIf="login.get('password')?.hasError('required')">Senha é obrigatória</span>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Link para recuperação de senha -->
+    <div class="forgot-password">
+      <a href="#">Esqueceu a senha?</a>
+    </div>
+    <div class="btn-wrapper">
+      <button class="btn-entrar" (click)="autenticar()">ENTRAR</button>
+    </div>
+  </form>
+
+</app-login-layout>
