@@ -1,0 +1,81 @@
+@import "../../../estilo/cores.scss";
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 0;
+  margin-top: 50px;
+
+  mat-form-field {
+    border-radius: 4px; // Bordas arredondadas
+
+    // Estilos para o preenchimento do campo
+    .mat-form-field-appearance-fill .mat-form-field-flex {
+      background-color: transparent;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Sombra leve para o campo
+      transition: box-shadow 0.3s; // Transição suave para a sombra
+    }
+
+    // Efeito de sombra ao passar o mouse
+    &:hover .mat-form-field-flex {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    // Sombra ao focar no campo
+    &:focus-within .mat-form-field-flex {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .forgot-password {
+    text-align: right;
+    margin-top: 10px;
+
+    a {
+      font-size: 14px;
+      text-decoration: underline;
+      color: $secondary-color;
+      cursor: pointer;
+    }
+  }
+
+  mat-error {
+    font-size: 12px; // Tamanho menor para mensagens de erro
+    color: red; // Mensagens de erro em vermelho
+    margin-top: 4px; // Espaçamento entre o input e a mensagem de erro
+    display: block; // Garante que a mensagem de erro fique em bloco
+    text-align: left; // Alinha as mensagens de erro à esquerda
+  }
+
+
+  .btn-wrapper{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+
+    button{
+
+      border-radius: 20px;
+      font-size: 20px;
+      font-weight: 500;
+      border: none;
+      background: transparent;
+      padding: 12px 28px;
+      cursor: pointer;
+
+      &.btn-entrar{
+        background-color: $primary-color;
+        color: white;
+        width: 65%;
+      }
+
+    }
+
+  }
+}
