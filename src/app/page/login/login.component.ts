@@ -1,13 +1,13 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, Input, signal, ChangeDetectionStrategy } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
-import { LoginService } from '../../service/login/login.service';
-import { Login } from '../../model/login';
-import { Router } from '@angular/router';
-import { LoginLayoutComponent } from '../../component/login-layout/login-layout.component';
-import { InputLoginComponent } from '../../component/input-login/input-login.component';
-import { NgIf } from '@angular/common';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import {ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, Input, signal} from '@angular/core';
+import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import {LoginService} from '../../service/login/login.service';
+import {Login} from '../../model/login';
+import {Router} from '@angular/router';
+import {LoginLayoutComponent} from '../../component/login-layout/login-layout.component';
+import {InputLoginComponent} from '../../component/input-login/input-login.component';
+import {NgIf} from '@angular/common';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @Component({
   selector: 'app-login',
@@ -22,26 +22,26 @@ export class LoginComponent {
 
   login: FormGroup;
 
-  readonly email = new FormControl('', [Validators.required, Validators.email]);
-  readonly password = new FormControl('', [Validators.required]);
+  readonly usuario = new FormControl('', [Validators.required]);
+  readonly senha = new FormControl('', [Validators.required]);
 
   errorMessage = signal('');
   @Input() primaryBtnText = "";
 
   constructor(private loginService: LoginService, private router: Router) {
     this.login = new FormGroup({
-      email: this.email,
-      password: this.password
+      usuario: this.usuario,
+      senha: this.senha
     });
 
     // Observa mudanças no campo de email e atualiza a mensagem de erro
-    this.email.valueChanges.subscribe(() => this.updateErrorMessage());
+    this.usuario.valueChanges.subscribe(() => this.updateErrorMessage());
   }
 
   autenticar() {
     const loginData: Login = {
-      email: this.email.value ?? '', // Se for null, usa uma string vazia
-      password: this.password.value ?? ''
+      usuario: this.usuario.value ?? '', // Se for null, usa uma string vazia
+      senha: this.senha.value ?? ''
     };
 
     this.loginService.autenticar(loginData).subscribe({
@@ -61,10 +61,8 @@ export class LoginComponent {
   }
 
   updateErrorMessage() {
-    if (this.email.hasError('required')) {
-      this.errorMessage.set('Você deve inserir um valor');
-    } else if (this.email.hasError('email')) {
-      this.errorMessage.set('Email inválido');
+    if (this.usuario.hasError('required')) {
+      this.errorMessage.set('Você deve inserir um usuário.');
     } else {
       this.errorMessage.set('');
     }

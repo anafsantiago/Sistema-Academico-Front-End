@@ -1,33 +1,32 @@
 <app-login-layout>
-
-  <form [formGroup]="login">
+  <form [formGroup]="login" (ngSubmit)="autenticar()">
 
     <!-- Campo de Email -->
     <mat-form-field appearance="fill">
       <mat-label>Usuário:</mat-label>
-      <input matInput formControlName="email" placeholder="matricula@efacil.com" type="email">
-      <mat-error *ngIf="login.get('email')?.invalid && login.get('email')?.touched">
-        <span *ngIf="login.get('email')?.hasError('required')">Email é obrigatório</span>
-        <span *ngIf="login.get('email')?.hasError('email')">Formato de email inválido</span>
+      <input matInput formControlName="usuario" placeholder="Seu usuário">
+      <mat-error *ngIf="login.get('usuario')?.invalid && login.get('usuario')?.touched">
+        <span *ngIf="login.get('usuario')?.hasError('required')">Usuário é obrigatório.</span>
       </mat-error>
     </mat-form-field>
 
     <!-- Campo de Senha -->
     <mat-form-field appearance="fill">
       <mat-label>Senha:</mat-label>
-      <input matInput formControlName="password" placeholder="Sua senha" type="password">
-      <mat-error *ngIf="login.get('password')?.invalid && login.get('password')?.touched">
-        <span *ngIf="login.get('password')?.hasError('required')">Senha é obrigatória</span>
+      <input matInput formControlName="senha" placeholder="Sua senha" type="password">
+      <mat-error *ngIf="login.get('senha')?.invalid && login.get('senha')?.touched">
+        <span *ngIf="login.get('senha')?.hasError('required')">Senha é obrigatória.</span>
       </mat-error>
     </mat-form-field>
 
     <!-- Link para recuperação de senha -->
-    <div class="forgot-password">
+    <div class="forgot-senha">
       <a href="#">Esqueceu a senha?</a>
     </div>
+
+    <!-- Botão de Login -->
     <div class="btn-wrapper">
-      <button class="btn-entrar" (click)="autenticar()">ENTRAR</button>
+      <button type="submit" class="btn-entrar">ENTRAR</button>
     </div>
   </form>
-
 </app-login-layout>
