@@ -1,0 +1,23 @@
+@import "../../../estilo/cores.scss";
+/* Estilos para organizar a página */
+
+
+.avatar-container {
+  display: flex;
+  align-items: center; /* Alinha o conteúdo verticalmente ao centro */
+  gap: 10px; /* Espaçamento entre o ícone e as labels */
+}
+
+/* Estilos adicionais para o botão de avatar */
+.avatar-container .avatar.icon {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Estilos para as labels ao lado do avatar */
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
