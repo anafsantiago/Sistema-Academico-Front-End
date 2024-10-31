@@ -1,0 +1,24 @@
+@import "../../../estilo/cores.scss";
+.toolbar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10; /* Certifique-se de que a toolbar esteja acima de outros elementos */
+  background-color: $blue-bg; /* Ajuste para corresponder ao estilo desejado */
+}
+
+.user-options-overlay {
+  position: fixed;
+  top: 50px; /* Ajuste a posição conforme necessário */
+  right: 25px;
+  z-index: 15; /* Deve estar acima da toolbar */
+  background-color: $blue-bg; /* Ajuste para corresponder ao estilo desejado */
+  padding: 10px;
+}
+
+main {
+  margin-top: 60px; /* Dê um espaço para a toolbar */
+  padding: 20px;
+  z-index: 1; /* Deve ficar abaixo dos elementos de overlay */
+}
