@@ -1,0 +1,95 @@
+@import "../../../estilo/cores.scss";
+
+
+
+
+h2 {
+  font-size: 30px;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.label1 {
+  font-size: 15px;
+  color: black;
+  text-align: center;
+  margin-bottom: 20px;
+
+}
+p{
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+
+
+mat-form-field {
+  margin-top: 8px;
+  width: 100%;
+  border-radius: 20px; // Bordas arredondadas
+
+
+
+  // Estilos para o preenchimento do campo
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: transparent;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Sombra leve para o campo
+    transition: box-shadow 0.3s; // Transição suave para a sombra
+
+  }
+
+
+  // Efeito de sombra ao passar o mouse
+  &:hover .mat-form-field-flex {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  // Sombra ao focar no campo
+  &:focus-within .mat-form-field-flex {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .mat-form-field {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+}
+.btn-wrapper{
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+
+  button{
+
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    background: transparent;
+    padding: 12px 28px;
+    cursor: pointer;
+
+    &.back-button{
+      background-color: $primary-color;
+      color: white;
+      width: 30%;
+    }
+    &.confirm-button{
+      background-color: $primary-color;
+      color: white;
+      width: 30%;
+    }
+
+  }}
+
+

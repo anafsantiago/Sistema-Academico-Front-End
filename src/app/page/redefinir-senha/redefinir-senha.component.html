@@ -1,0 +1,26 @@
+<app-redefinir-senha-layout>
+  <main>
+
+    <!-- Textos da página -->
+    <form class = "redefinir-label">
+      <h2>Esqueceu sua senha?</h2>
+      <span class = "label1">Para recuperar sua senha, digite o seu número de matrícula ou login. Um e-mail será enviado, solicitando a confirmação da recuperação da senha.</span>
+      <p>Informe o seu número de matrícula ou email:</p>
+    </form>
+
+    <!-- Campo para inserir email -->
+    <mat-form-field appearance="fill">
+      <mat-label>Digite aqui</mat-label>
+      <input matInput formControlName="usuario" placeholder="Sua Matricula ou Email">
+    </mat-form-field>
+
+
+    <div class="btn-wrapper">
+
+      <button type="submit" class="back-button">Voltar</button>
+      <button type="submit" class="confirm-button">Confirmar</button>
+    </div>
+
+
+  </main>
+</app-redefinir-senha-layout>
