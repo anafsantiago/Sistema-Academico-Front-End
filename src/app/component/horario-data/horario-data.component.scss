@@ -1,67 +1,57 @@
-main{
-
+main {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  gap: 200px; // Espaço entre os balões
+  padding-top: 200px; // Altura do topo
+  padding-right: 250px;
 
-.primeiro-balao{
-  height: 200px;
-  background-color: white;
-  width: 500px;
-  border-radius: 20px;
-  margin-top: 200px;
-  margin-left: -200px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-.segundo-balao{
-  height: 200px;
-  background-color: white;
-  width: 500px;
-  border-radius: 20px;
-  margin-top: 200px;
-  margin-left: 200px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-  .conteudo-primeiro-balao{
-   display: flex;
-
-  .horario{
-    margin-left: 24px;
-    margin-top: -69px;
-  }
-    p{
-      margin-top: 38px;
-      margin-left: 10px;
-      font-weight: Bold;
-    }
-    .horarios{
-      margin-top: 80px;
-      display: flex;
-      flex-direction: column;
-      margin-left: -140.5px;
-      gap: 10px;
-    }
-  }
-  .conteudo-segundo-balao{
+  .balao {
+    height: 200px;
+    width: 500px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
 
-    .calendario{
-      margin-left: 24px;
-      margin-top: -69px;
+
+
+
+    .icone {
+      width: 30px; // Tamanho padrão para os ícones
+      margin-top: -100px;
     }
-    p{
-      margin-top: 38px;
-      margin-left: 10px;
-      font-weight: Bold;
-    }
-    .datas{
-      margin-top: 80px;
+
+    .conteudo {
       display: flex;
       flex-direction: column;
-      margin-left: -157px;
-      gap: 10px;
+      align-items: flex-start;
 
+      p {
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .lista {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        a {
+          color: #333;
+          text-decoration: none;
+        }
+      }
     }
-
+  }
+  .primeiro-balao{
+    margin-bottom: 500px;
+  }
+  .segundo-balao{
+    margin-bottom: 500px;
   }
 }
