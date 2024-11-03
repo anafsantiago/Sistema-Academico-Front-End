@@ -15,8 +15,6 @@
 }
 
 main {
-  justify-content: space-between;
-  display: flex;
   min-height: 100vh; // Altura total da tela, já que a toolbar é fixa
   padding: 20px;
   z-index: 1; /* Deve estar abaixo dos overlays */
