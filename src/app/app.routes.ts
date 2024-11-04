@@ -9,5 +9,5 @@ export const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'home-aluno', component: HomeAlunoComponent},
   {path: 'redefinir-senha', component: RedefinirSenhaComponent},
-  {path: 'uc-notas-frequencia', component: UcNotasFrequenciaComponent},
+  {path: 'uc-notas-frequencia', component: UcNotasFrequenciaComponent}
 ];
