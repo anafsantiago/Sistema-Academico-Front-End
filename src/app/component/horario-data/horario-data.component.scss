@@ -3,12 +3,13 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   background-color: $blue-bg;
+  margin-bottom: 50px;
+  margin-top: 30px;
 
   .primeiro-balao{
     margin-left: 200px;
-    margin-bottom: 600px;
+
     width: 450px;
     height: 200px;
     display: flex;
@@ -18,6 +19,7 @@ main {
     flex-grow: 0.1;
     background-color: white;
     padding: 60px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
     border-radius: 20px;
 
@@ -36,8 +38,7 @@ main {
   }
 
   .segundo-balao{
-    margin-left: 200px;
-    margin-bottom: 600px;
+    margin-left: 84px;
     width: 450px;
     height: 200px;
     display: flex;
@@ -47,6 +48,7 @@ main {
     flex-grow: 0.1;
     background-color: white;
     padding: 60px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
     border-radius: 20px;
 
@@ -66,3 +68,4 @@ main {
   }
 
 }
+
