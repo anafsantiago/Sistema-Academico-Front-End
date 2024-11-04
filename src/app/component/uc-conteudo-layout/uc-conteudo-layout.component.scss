@@ -1,0 +1,102 @@
+@import "../../../estilo/cores.scss";
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: $blue-bg;
+  margin-left: 200px;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: $secondary-color;
+  margin-bottom: 20px;
+}
+
+.baloes {
+  display: grid;
+  gap: 50px;
+  justify-content: center;
+
+}
+
+
+.balao {
+  width: 980px;
+  max-width: 980px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.conteudo-coluna {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espaçamento entre cada .conteudo-item */
+}
+
+.conteudo-item {
+  display: flex;
+  justify-content: space-between; /* Espaça a coluna de texto e a data */
+  align-items: flex-start;
+}
+
+.texto {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Espaçamento entre título e descrição */
+}
+
+.titulo {
+  font-weight: bold;
+  color: $secondary-color;
+  font-size: 1.2em;
+}
+
+.descricao {
+  color: $secondary-color;
+  font-size: 1em;
+}
+
+.data {
+  color: $secondary-color;
+  font-size: 0.9em;
+  align-self: flex-start; /* Alinha a data ao topo */
+  margin-left: 500px; /* Empurra a data para o lado direito */
+}
+.btn-wrapper {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.btn-conteudo,
+.btn-notas {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.btn-conteudo {
+  background-color: $primary-color;
+  color: white;
+}
+
+.btn-notas {
+  background-color: $secondary-color;
+  color: white;
+}
