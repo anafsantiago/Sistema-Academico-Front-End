@@ -6,12 +6,10 @@
 }
 
 .user-options-overlay {
-  position: fixed;
-  top: 50px; /* Ajuste a posição conforme necessário */
-  right: 25px;
-  z-index: 15; /* Deve estar acima da toolbar */
-  background-color: $blue-bg; /* Ajuste para corresponder ao estilo desejado */
-  padding: 10px;
+  background-color: $blue-bg;
+  float: right;
+  margin-top: 30px;
+  margin-right: 10px;
 }
 
 main {
@@ -19,6 +17,7 @@ main {
   padding: 20px;
   z-index: 1; /* Deve estar abaixo dos overlays */
   background-color: $blue-bg;
+  flex-direction: column; /* Empilha os elementos verticalmente */
 
 }
 .text{
@@ -28,8 +27,15 @@ main {
   font-weight: bolder;
   color: $secondary-color;
 
+
 }
 .baloes{
  display: flex;
+
 }
+
+.app-minhas-uc-aluno{
+  width: 100%;
+}
+
 
