@@ -1,0 +1,40 @@
+@import "../../../estilo/cores.scss";
+.toolbar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.user-options-overlay {
+  background-color: $blue-bg;
+  float: right;
+  margin-top: 30px;
+  margin-right: 10px;
+}
+
+main {
+  min-height: 100vh; // Altura total da tela, já que a toolbar é fixa
+  padding: 20px;
+  z-index: 1; /* Deve estar abaixo dos overlays */
+  background-color: $blue-bg;
+  flex-direction: column; /* Empilha os elementos verticalmente */
+
+}
+.text{
+  margin-top: 80px;
+  padding-left: 200px;
+  font-size: 35px;
+  font-weight: bolder;
+  color: $secondary-color;
+
+
+}
+.baloes{
+  display: flex;
+
+}
+
+.app-minhas-uc-aluno{
+  width: 100%;
+}
+
