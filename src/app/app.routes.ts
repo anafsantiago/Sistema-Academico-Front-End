@@ -6,6 +6,7 @@ import {UcConteudoComponent} from './page/uc-conteudo/uc-conteudo.component';
 import {AlunoNotasFrequenciaComponent} from './page/aluno-notas-frequencia/aluno-notas-frequencia.component';
 import {HomeProfessorComponent} from './page/home-professor/home-professor.component';
 import {ProfConteudoComponent} from './page/prof-conteudo/prof-conteudo.component';
+import {ProfNotasComponent} from './page/prof-notas/prof-notas.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -15,5 +16,6 @@ export const routes: Routes = [
   {path: 'uc-conteudo', component:UcConteudoComponent},
   {path: 'aluno-notas-frequencia', component: AlunoNotasFrequenciaComponent},
   {path: 'home-professor', component: HomeProfessorComponent},
-  {path: 'prof-conteudo', component: ProfConteudoComponent}
+  {path: 'prof-conteudo', component: ProfConteudoComponent},
+  {path: 'prof-notas', component: ProfNotasComponent}
 ];
