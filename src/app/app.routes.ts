@@ -8,6 +8,7 @@ import {HomeProfessorComponent} from './page/home-professor/home-professor.compo
 import {ProfConteudoComponent} from './page/prof-conteudo/prof-conteudo.component';
 import {ProfNotasComponent} from './page/prof-notas/prof-notas.component';
 import {ProfFrequenciaComponent} from './page/prof-frequencia/prof-frequencia.component';
+import {ProfRelatoriosComponent} from './page/prof-relatorios/prof-relatorios.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -19,5 +20,6 @@ export const routes: Routes = [
   {path: 'home-professor', component: HomeProfessorComponent},
   {path: 'prof-conteudo', component: ProfConteudoComponent},
   {path: 'prof-notas', component: ProfNotasComponent},
-  {path: 'prof-frequencia', component: ProfFrequenciaComponent}
+  {path: 'prof-frequencia', component: ProfFrequenciaComponent},
+  {path: 'prof-relatorios', component: ProfRelatoriosComponent}
 ];
