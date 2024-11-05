@@ -7,6 +7,7 @@ import {AlunoNotasFrequenciaComponent} from './page/aluno-notas-frequencia/aluno
 import {HomeProfessorComponent} from './page/home-professor/home-professor.component';
 import {ProfConteudoComponent} from './page/prof-conteudo/prof-conteudo.component';
 import {ProfNotasComponent} from './page/prof-notas/prof-notas.component';
+import {ProfFrequenciaComponent} from './page/prof-frequencia/prof-frequencia.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -17,5 +18,6 @@ export const routes: Routes = [
   {path: 'aluno-notas-frequencia', component: AlunoNotasFrequenciaComponent},
   {path: 'home-professor', component: HomeProfessorComponent},
   {path: 'prof-conteudo', component: ProfConteudoComponent},
-  {path: 'prof-notas', component: ProfNotasComponent}
+  {path: 'prof-notas', component: ProfNotasComponent},
+  {path: 'prof-frequencia', component: ProfFrequenciaComponent}
 ];
