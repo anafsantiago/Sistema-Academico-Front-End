@@ -5,6 +5,7 @@ import {RedefinirSenhaComponent} from './page/redefinir-senha/redefinir-senha.co
 import {UcConteudoComponent} from './page/uc-conteudo/uc-conteudo.component';
 import {AlunoNotasFrequenciaComponent} from './page/aluno-notas-frequencia/aluno-notas-frequencia.component';
 import {HomeProfessorComponent} from './page/home-professor/home-professor.component';
+import {ProfConteudoComponent} from './page/prof-conteudo/prof-conteudo.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -13,5 +14,6 @@ export const routes: Routes = [
   {path: 'redefinir-senha', component: RedefinirSenhaComponent},
   {path: 'uc-conteudo', component:UcConteudoComponent},
   {path: 'aluno-notas-frequencia', component: AlunoNotasFrequenciaComponent},
-  {path: 'home-professor', component: HomeProfessorComponent}
+  {path: 'home-professor', component: HomeProfessorComponent},
+  {path: 'prof-conteudo', component: ProfConteudoComponent}
 ];
