@@ -4,13 +4,15 @@
     </button>
     <div class="user-details">
       <div class="label-item">
-        <strong>Nome Completo:</strong> Augusto Toscano
+        <strong>Nome:</strong> {{ nomePessoa }}
       </div>
-      <div class="label-item">
-        <strong>Curso:</strong> Engenharia de Software
-      </div>
-      <div class="label-item">
-        <strong>Semestre Atual:</strong> 5º Semestre
+      <div *ngIf="isDiscente">
+        <div class="label-item">
+          <strong>Curso:</strong> Engenharia de Software
+        </div>
+        <div class="label-item">
+          <strong>Semestre Atual:</strong> 5º Semestre
+        </div>
       </div>
     </div>
   </div>

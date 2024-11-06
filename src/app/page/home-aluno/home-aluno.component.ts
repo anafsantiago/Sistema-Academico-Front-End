@@ -13,4 +13,6 @@ import {MinhasUcAlunoComponent} from '../../component/minhas-uc-aluno/minhas-uc-
 })
 export class HomeAlunoComponent {
 
+
+
 }
