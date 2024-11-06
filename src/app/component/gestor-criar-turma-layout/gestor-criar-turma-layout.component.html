@@ -1,0 +1,41 @@
+<main>
+  <h1>Olá, Gestor!</h1>
+  <section class="btn-wrapper">
+    <button type="button" class="btn-criar-turma">Criar Turmas</button>
+    <button type="button" class="btn-consultar-turma">Consultar Turmas Existentes</button>
+  </section>
+  <h2>Criar Turmas</h2>
+  <section class="card-turma">
+    <div class="card-turma-titulo">
+      <h3>Dados da Turma</h3>
+    </div>
+    <form class="formulario">
+        <div>
+          <label for="nome-turma">Unidade Curricular:</label>
+          <select name="nome-turma" id="nome-turma">
+            <option value="selecione">Selecione a Unidade Curricular</option>
+            <option value="turma1">UC 1</option>
+            <option value="turma2">UC 2</option>
+            <option value="turma3">UC 3</option>
+          </select>
+        </div>
+        <div>
+          <label for="vagas">Turno:</label>
+          <select name="vagas" id="vagas">
+            <option value="selecione">Selecione o Turno</option>
+            <option value="turma1">Matutino</option>
+            <option value="turma2">Vespertino</option>
+            <option value="turma3">Noturno</option>
+          </select>
+        </div>
+        <div>
+          <label>Código da Turma:</label>
+          <div class="codigo-turma">
+            <p>123456</p>
+          </div>
+        </div>
+      <button class="salvar">Salvar</button>
+    </form>
+  </section>
+</main>
+
