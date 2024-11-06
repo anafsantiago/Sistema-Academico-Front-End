@@ -12,7 +12,4 @@ import {MinhasUcAlunoComponent} from '../../component/minhas-uc-aluno/minhas-uc-
   styleUrl: './home-aluno.component.scss'
 })
 export class HomeAlunoComponent {
-
-
-
 }

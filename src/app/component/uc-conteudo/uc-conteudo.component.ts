@@ -1,23 +1,20 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {HorarioDataComponent} from '../../component/horario-data/horario-data.component';
-import {MinhasUcAlunoComponent} from '../../component/minhas-uc-aluno/minhas-uc-aluno.component';
 import {ToolbarComponent} from '../../component/toolbar/toolbar.component';
 import {UserOptionsComponent} from '../../component/user-options/user-options.component';
-import {UcConteudoLayoutComponent} from '../../component/uc-conteudo-layout/uc-conteudo-layout.component';
+import {UnidadeCurricular} from '../../model/unidadeCurricular';
 
 @Component({
   selector: 'app-uc-conteudo',
   standalone: true,
   imports: [
     HorarioDataComponent,
-    MinhasUcAlunoComponent,
     ToolbarComponent,
-    UserOptionsComponent,
-    UcConteudoLayoutComponent
+    UserOptionsComponent
   ],
   templateUrl: './uc-conteudo.component.html',
   styleUrl: './uc-conteudo.component.scss'
 })
 export class UcConteudoComponent {
-
+  @Input() unidadeCurricular!: UnidadeCurricular;
 }

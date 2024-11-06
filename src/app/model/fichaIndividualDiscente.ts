@@ -2,7 +2,7 @@ import {Nota} from './nota';
 
 export interface FichaIndividualDiscente {
   id: number;
-  notas: Nota;
+  notas: Nota[];
   faltas: number;
   resultadoFinal: number;
 }

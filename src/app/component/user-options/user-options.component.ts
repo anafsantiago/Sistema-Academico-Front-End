@@ -1,9 +1,10 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatButton} from '@angular/material/button';
 import {MatFormField, MatLabel} from '@angular/material/form-field';
 import {NgIf} from '@angular/common';
-import {AlocacaoDiscenteService} from '../../service/alocacao-discente/alocacao-discente.service';
 import {AlocacaoDiscente} from '../../model/alocacaoDiscente';
+import {MatriculaDiscenteService} from '../../service/matricula-discente/matricula-discente.service';
+import {MatriculaCurso} from '../../model/matriculaCurso';
 
 @Component({
   selector: 'app-user-options',
@@ -15,14 +16,16 @@ import {AlocacaoDiscente} from '../../model/alocacaoDiscente';
     NgIf
   ],
   templateUrl: './user-options.component.html',
-  styleUrl: './user-options.component.scss'
+  styleUrls: ['./user-options.component.scss']
 })
-export class UserOptionsComponent {
+export class UserOptionsComponent implements OnInit {
   nomePessoa: string | null = '';
+  nomeCurso: string | null = '';
+  periodoAtual!: number;
   isDiscente: boolean = false;
-  alocacaoDiscente!: AlocacaoDiscente;
+  matriculasDiscente!: MatriculaCurso;
 
-  constructor(private alocacaoDiscenteService: AlocacaoDiscenteService) {
+  constructor(private matriculaDiscenteService: MatriculaDiscenteService) {
   }
 
   ngOnInit(): void {
@@ -34,20 +37,21 @@ export class UserOptionsComponent {
 
       if (this.isDiscente) {
         const idPessoa = usuario.pessoa.id;
-        this.alocacaoDiscenteService.carregarAlocacaoDiscente(idPessoa).subscribe({
-          next: alocacaoDiscente => {
-            this.alocacaoDiscente = alocacaoDiscente;
-            console.log(this.alocacaoDiscente)
+        this.matriculaDiscenteService.carregarDadosMatriculaDiscente(idPessoa).subscribe({
+          next: matriculasDiscente => {
+            this.matriculasDiscente = matriculasDiscente;
+            this.nomeCurso = matriculasDiscente.curso.nomeCurso;
+            this.periodoAtual = matriculasDiscente.periodo;
+            console.log(this.matriculasDiscente);
           },
           error: error => {
             console.log('Erro:', error.error);
           },
           complete: () => {
-            console.log('Carregamento de alocação concluído.');
+            console.log('Carregamento de matrícula concluído.');
           }
         });
       }
     }
   }
-
 }

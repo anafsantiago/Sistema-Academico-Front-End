@@ -1,0 +1,29 @@
+<main>
+  <h1>{{ nomeUnidadeCurricular }}</h1>
+  <section class="baloes">
+    <table>
+      <thead>
+      <tr>
+        <th>Unidade 1</th>
+        <th>Unidade 2</th>
+        <th>Unidade 3</th>
+        <th>Reposição</th>
+        <th>Nota Final</th>
+        <th>Faltas</th>
+        <th>Situação</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngIf="fichaIndividual">
+        <td>{{ fichaIndividual.notas[0]?.valor || '-' }}</td>
+        <td>{{ fichaIndividual.notas[1]?.valor || '-' }}</td>
+        <td>{{ fichaIndividual.notas[2]?.valor || '-' }}</td>
+        <td>{{ getNotaReposicao() }}</td>
+        <td>{{ fichaIndividual.resultadoFinal }}</td>
+        <td>{{ fichaIndividual.faltas }}</td>
+        <td>{{ situacaoAlocacao }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
