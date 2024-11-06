@@ -4,9 +4,9 @@ import {NgForOf, NgIf} from '@angular/common';
 import {AlocacaoDiscenteService} from '../../service/alocacao-discente/alocacao-discente.service';
 import {AlocacaoDiscente} from '../../model/alocacaoDiscente';
 import {UnidadeCurricular} from '../../model/unidadeCurricular';
-import {AlunoNotasFrequenciaComponent} from '../../page/aluno-notas-frequencia/aluno-notas-frequencia.component';
 import {FichaIndividualDiscente} from '../../model/fichaIndividualDiscente';
 import {UcConteudoComponent} from '../uc-conteudo/uc-conteudo.component';
+import {AlunoNotasFrequenciaComponent} from '../aluno-notas-frequencia/aluno-notas-frequencia.component';
 
 @Component({
   selector: 'app-minhas-uc-aluno',

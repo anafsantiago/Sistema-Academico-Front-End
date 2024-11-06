@@ -15,9 +15,9 @@
       </thead>
       <tbody>
       <tr *ngIf="fichaIndividual">
-        <td>{{ fichaIndividual.notas[0]?.valor || '-' }}</td>
-        <td>{{ fichaIndividual.notas[1]?.valor || '-' }}</td>
-        <td>{{ fichaIndividual.notas[2]?.valor || '-' }}</td>
+        <td>{{ fichaIndividual.notas[0].valor || '-' }}</td>
+        <td>{{ fichaIndividual.notas[1].valor || '-' }}</td>
+        <td>{{ fichaIndividual.notas[2].valor || '-' }}</td>
         <td>{{ getNotaReposicao() }}</td>
         <td>{{ fichaIndividual.resultadoFinal }}</td>
         <td>{{ fichaIndividual.faltas }}</td>
