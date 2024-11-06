@@ -9,7 +9,7 @@ import {ProfConteudoComponent} from './page/prof-conteudo/prof-conteudo.componen
 import {ProfNotasComponent} from './page/prof-notas/prof-notas.component';
 import {ProfFrequenciaComponent} from './page/prof-frequencia/prof-frequencia.component';
 import {ProfRelatoriosComponent} from './page/prof-relatorios/prof-relatorios.component';
-import {HomeGestorComponent} from './page/home-gestor/home-gestor.component';
+import {GestorCriarTurmaComponent} from './page/gestor-criar-turma/gestor-criar-turma.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -23,5 +23,5 @@ export const routes: Routes = [
   {path: 'prof-notas', component: ProfNotasComponent},
   {path: 'prof-frequencia', component: ProfFrequenciaComponent},
   {path: 'prof-relatorios', component: ProfRelatoriosComponent},
-  {path: 'home-gestor', component: HomeGestorComponent}
+  {path: 'gestor-criar-turma', component: GestorCriarTurmaComponent}
 ];
