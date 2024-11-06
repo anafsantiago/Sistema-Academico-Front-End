@@ -11,6 +11,9 @@ import {ProfFrequenciaComponent} from './page/prof-frequencia/prof-frequencia.co
 import {ProfRelatoriosComponent} from './page/prof-relatorios/prof-relatorios.component';
 import {GestorCriarTurmaComponent} from './page/gestor-criar-turma/gestor-criar-turma.component';
 import {HomeGestorComponent} from './page/home-gestor/home-gestor.component';
+import {
+  GestorVisualizarRelatorioProfComponent
+} from './page/gestor-visualizar-relatorio-prof/gestor-visualizar-relatorio-prof.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -25,5 +28,6 @@ export const routes: Routes = [
   {path: 'prof-frequencia', component: ProfFrequenciaComponent},
   {path: 'prof-relatorios', component: ProfRelatoriosComponent},
   {path: 'gestor-criar-turma', component: GestorCriarTurmaComponent},
-  {path: 'home-gestor', component: HomeGestorComponent}
+  {path: 'home-gestor', component: HomeGestorComponent},
+  {path: 'gestor-visualizar-relatorio-prof', component: GestorVisualizarRelatorioProfComponent}
 ];
