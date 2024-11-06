@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
-import {HorarioDataComponent} from '../../component/horario-data/horario-data.component';
-import {UserOptionsComponent} from '../../component/user-options/user-options.component';
-import {ToolbarComponent} from '../../component/toolbar/toolbar.component';
+import {HorarioDataComponent} from '../horario-data/horario-data.component';
+import {UserOptionsComponent} from '../user-options/user-options.component';
+import {ToolbarComponent} from '../toolbar/toolbar.component';
 import {FichaIndividualDiscente} from '../../model/fichaIndividualDiscente';
 import {NgIf} from '@angular/common';
 

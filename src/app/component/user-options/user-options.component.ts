@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {MatButton} from '@angular/material/button';
 import {MatFormField, MatLabel} from '@angular/material/form-field';
 import {NgIf} from '@angular/common';
-import {AlocacaoDiscente} from '../../model/alocacaoDiscente';
 import {MatriculaDiscenteService} from '../../service/matricula-discente/matricula-discente.service';
 import {MatriculaCurso} from '../../model/matriculaCurso';
 

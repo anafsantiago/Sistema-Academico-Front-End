@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
-import {HorarioDataComponent} from '../../component/horario-data/horario-data.component';
-import {ToolbarComponent} from '../../component/toolbar/toolbar.component';
-import {UserOptionsComponent} from '../../component/user-options/user-options.component';
+import {HorarioDataComponent} from '../horario-data/horario-data.component';
+import {ToolbarComponent} from '../toolbar/toolbar.component';
+import {UserOptionsComponent} from '../user-options/user-options.component';
 import {UnidadeCurricular} from '../../model/unidadeCurricular';
 
 @Component({
