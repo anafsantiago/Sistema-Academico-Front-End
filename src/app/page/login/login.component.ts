@@ -1,16 +1,16 @@
-import {ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, Input, signal} from '@angular/core';
-import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {LoginService} from '../../service/login/login.service';
-import {Login} from '../../model/login';
-import {Router} from '@angular/router';
-import {LoginLayoutComponent} from '../../component/login-layout/login-layout.component';
-import {InputLoginComponent} from '../../component/input-login/input-login.component';
-import {NgIf} from '@angular/common';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {UsuarioService} from '../../service/usuario/usuario.service';
-import {jwtDecode} from "jwt-decode";
-
+import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, Input, signal } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { LoginService } from '../../service/login/login.service';
+import { Login } from '../../model/login';
+import { Router } from '@angular/router';
+import { LoginLayoutComponent } from '../../component/login-layout/login-layout.component';
+import { InputLoginComponent } from '../../component/input-login/input-login.component';
+import { NgIf } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { UsuarioService } from '../../service/usuario/usuario.service';
+import { jwtDecode } from "jwt-decode";
+import { MatSnackBar } from '@angular/material/snack-bar'; // Import do MatSnackBar
 
 @Component({
   selector: 'app-login',
@@ -24,14 +24,18 @@ import {jwtDecode} from "jwt-decode";
 export class LoginComponent {
 
   login: FormGroup;
-
   readonly usuario = new FormControl('', [Validators.required]);
   readonly senha = new FormControl('', [Validators.required]);
 
   errorMessage = signal('');
   @Input() primaryBtnText = "";
 
-  constructor(private loginService: LoginService, private usuarioService: UsuarioService, private router: Router) {
+  constructor(
+    private loginService: LoginService,
+    private usuarioService: UsuarioService,
+    private router: Router,
+    private snackBar: MatSnackBar // Injeta o MatSnackBar
+  ) {
     this.login = new FormGroup({
       usuario: this.usuario,
       senha: this.senha
@@ -72,6 +76,10 @@ export class LoginComponent {
       error: error => {
         console.log('Erro:', error.error);
         this.errorMessage.set('Erro ao autenticar. Verifique suas credenciais.');
+        this.snackBar.open('Erro ao autenticar. Verifique seu Usuario e Senha.', 'Fechar', {
+          duration: 5000,
+          verticalPosition: 'top'
+        }); // Exibe o Snackbar com a mensagem de erro
       },
       complete: () => {
         console.log('Autenticação completa.');
