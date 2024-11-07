@@ -13,6 +13,7 @@ import {
   GestorVisualizarRelatorioProfComponent
 } from './page/gestor-visualizar-relatorio-prof/gestor-visualizar-relatorio-prof.component';
 import { GestorVisualizarRelatorioAlunoComponent } from './page/gestor-visualizar-relatorio-aluno/gestor-visualizar-relatorio-aluno.component';
+import {GestorConsultarTurmaComponent} from './page/gestor-consultar-turma/gestor-consultar-turma.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -27,5 +28,6 @@ export const routes: Routes = [
   {path: 'gestor-criar-turma', component: GestorCriarTurmaComponent},
   {path: 'home-gestor', component: HomeGestorComponent},
   {path: 'gestor-visualizar-relatorio-prof', component: GestorVisualizarRelatorioProfComponent},
-  {path: 'gestor-visualizar-relatorio-aluno', component: GestorVisualizarRelatorioAlunoComponent}
+  {path: 'gestor-visualizar-relatorio-aluno', component: GestorVisualizarRelatorioAlunoComponent},
+  {path: 'gestor-consultar-turma', component: GestorConsultarTurmaComponent}
 ];
