@@ -1,6 +1,6 @@
 <main>
   <h1 class="baloes">Minhas Turmas</h1>
-  <section class="baloes">
+  <section class="baloes" >
     <div *ngFor="let alocacaoDocente of alocacoesDocente" class="balao">
       <p>{{ alocacaoDocente.turmaUnidadeCurricular.unidadeCurricular.nomeUnidadeCurricular | uppercase }}</p>
       <a>{{ getCursoPorIdTurma(alocacaoDocente.turmaUnidadeCurricular.id)?.nomeCurso }}</a>
@@ -8,19 +8,28 @@
       <div class="btn-wrapper">
         <button type="button"
                 class="btn-relatorio"
-                (click)="mostrarConteudo(alocacaoDocente.turmaUnidadeCurricular)">
+                (click)="mostrarDesempenhoTurma(alocacaoDocente.turmaUnidadeCurricular)">
           Relatório da Turma
         </button>
-        <button type="button" class="btn-notas">Registrar Notas e Frequência</button>
+        <button type="button"
+                class="btn-notas"
+                (click)="lancarNotasFrequencias(alocacaoDocente.turmaUnidadeCurricular)">
+          Registrar Notas e Frequência
+        </button>
       </div>
     </div>
   </section>
 
-  <section class="baloes">
+  <div class="baloes">
     <app-prof-conteudo-layout
-      *ngIf="exibirConteudo"
-      [alocacoesDiscente]="alocacoesDiscente"
+      *ngIf="exibirDesempenhoTurma"
+      [alocacoesDiscente]="alocacoesDiscentePorTurma"
       [turmaUnidade]="turmaSelecionada">
     </app-prof-conteudo-layout>
-  </section>
+    <app-prof-notas-layout
+      *ngIf="exibirNotasFrequencia"
+      [alocacoesDiscente]="alocacoesDiscentePorTurma"
+      [turmaUnidade]="turmaSelecionada">
+    </app-prof-notas-layout>
+  </div>
 </main>

@@ -5,4 +5,5 @@ export interface FichaIndividualDiscente {
   notas: Nota[];
   faltas: number;
   resultadoFinal: number;
+  porcentagemFrequencia: number;
 }

@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {MatCard, MatCardContent, MatCardHeader} from '@angular/material/card';
 import {
   MatCell,
@@ -39,18 +39,19 @@ import {TurmaUnidadeCurricular} from '../../model/turmaUnidadeCurricular';
   templateUrl: './prof-conteudo-layout.component.html',
   styleUrl: './prof-conteudo-layout.component.scss'
 })
-export class ProfConteudoLayoutComponent {
-  @Input() alocacoesDiscente!: AlocacaoDiscente[];
+export class ProfConteudoLayoutComponent implements OnChanges{
+  @Input() alocacoesDiscente: Map<number, AlocacaoDiscente[]> = new Map();
   @Input() turmaUnidade!: TurmaUnidadeCurricular;
 
   colunas: string[] = [
     'discente', 'notaFinal', 'porcentagemPresenca', 'situacaoAluno'];
   dataSource = new MatTableDataSource<any>();
 
-  ngOnInit(): void {
-    console.log(this.alocacoesDiscente);
-    if (this.alocacoesDiscente) {
-      this.dataSource.data = [this.alocacoesDiscente];
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['turmaUnidade'] && this.turmaUnidade) {
+      const idTurma = this.turmaUnidade.id;
+      const alocacoesParaTurma = this.alocacoesDiscente.get(idTurma) || [];
+      this.dataSource.data = alocacoesParaTurma;
     }
   }
 }

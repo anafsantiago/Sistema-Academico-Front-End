@@ -1,171 +1,27 @@
-@import "../../../estilo/cores.scss";
-
-// Variáveis SASS para datas e cores de destaque
-$data-color: #555;
-$highlight-color: #e0f7fa;
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: $blue-bg;
-  margin-left: 200px;
-  padding: 20px;
+.custom-table {
+  width: 80%; /* Ajusta a largura da tabela */
+  margin: 0 auto; /* Centraliza a tabela na tela */
+  border-collapse: collapse; /* Faz com que as bordas das células se fundam, eliminando o espaçamento entre elas */
 }
 
-h1 {
-  font-size: 2em;
-  font-weight: bold;
-  color: $secondary-color;
-  margin-bottom: 20px;
+.custom-table th, .custom-table td {
+  font-size: 14px; /* Reduz o tamanho da fonte nas células da tabela */
+  padding: 4px; /* Reduz o espaçamento interno entre o conteúdo e as bordas das células */
 }
 
-.baloes {
-  display: flex;
-  gap: 50px;
-  justify-content: center;
-
-  .balao {
-    display: flex;
-    flex-wrap: wrap; /* Permite que as colunas se ajustem automaticamente */
-    gap: 50px;
-    width: 500%;
-    height: 200%;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-    .table-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f0f0f5;
-    }
-
-    table {
-      width: 90%;
-      max-width: 900px;
-      background-color: white;
-      border-collapse: collapse;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
-      th, td {
-        text-align: left;
-        padding: 15px;
-        border-bottom: 1px solid #ddd;
-        border-right: 1px solid #ddd;
-        white-space: nowrap; /* Impede que o texto quebre em várias linhas */
-      }
-
-      th {
-        background-color: #f0f0f5;
-        font-weight: bold;
-      }
-
-      td:last-child {
-        border-right: none;
-      }
-
-      tr:last-child td {
-        border-bottom: none;
-      }
-
-      input {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 16px;
-      }
-    }
-  }
+.custom-table mat-header-row {
+  font-weight: bold; /* Deixa os cabeçalhos com mais destaque */
 }
 
-.btn-wrapper {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+/* Reduz o tamanho do campo de entrada dentro do mat-form-field */
+.custom-table mat-form-field {
+  width: 90px; /* Define uma largura fixa menor para os campos de entrada */
+  height: 60px;
+  margin: 0; /* Remove margens adicionais */
 }
 
-.btn-conteudo,
-.btn-notas {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 0.9em;
-  transition: opacity 0.3s ease;
-
-  &:hover {
-    opacity: 0.9;
-  }
+.custom-table mat-form-field input {
+  font-size: 20px; /* Ajusta o tamanho da fonte dentro do input */
+  padding: 4px; /* Ajusta o espaçamento interno do input */
+  height: 24px; /* Ajusta a altura do input */
 }
-
-.btn-conteudo {
-  background-color: $primary-color;
-  color: white;
-
-}
-
-.btn-notas {
-  background-color: $primary-color;
-  color: white;
-}
-
-.btn-relatorios {
-  background-color: $primary-color;
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 0.9em;
-  transition: opacity 0.3s ease;
-}
-
-.btn-frequencia {
-  background-color: $primary-color;
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 0.9em;
-  transition: opacity 0.3s ease;
-}
-.action-buttons {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  width: 100%;
-  margin-top: 20px;
-
-  .btn-gerar-relatorios,
-  .btn-salvar {
-    padding: 10px 20px;
-    border: none;
-    background-color: $primary-color;
-    color: white;
-    font-size: 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: $primary-color;
-    }
-  }
-
-  .btn-salvar {
-    background-color: $primary-color;
-
-    &:hover {
-      background-color: $primary-color;
-    }
-  }
-}
-
