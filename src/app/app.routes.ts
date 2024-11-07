@@ -14,6 +14,12 @@ import {
 } from './page/gestor-visualizar-relatorio-prof/gestor-visualizar-relatorio-prof.component';
 import { GestorVisualizarRelatorioAlunoComponent } from './page/gestor-visualizar-relatorio-aluno/gestor-visualizar-relatorio-aluno.component';
 import {GestorConsultarTurmaComponent} from './page/gestor-consultar-turma/gestor-consultar-turma.component';
+import {
+  GerenciarAlocacoesProfessoresComponent
+} from './page/gerenciar-alocacoes-professores/gerenciar-alocacoes-professores.component';
+import {
+  GerenciarAlocacoesAlunosComponent
+} from './page/gerenciar-alocacoes-alunos/gerenciar-alocacoes-alunos.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -29,5 +35,7 @@ export const routes: Routes = [
   {path: 'home-gestor', component: HomeGestorComponent},
   {path: 'gestor-visualizar-relatorio-prof', component: GestorVisualizarRelatorioProfComponent},
   {path: 'gestor-visualizar-relatorio-aluno', component: GestorVisualizarRelatorioAlunoComponent},
-  {path: 'gestor-consultar-turma', component: GestorConsultarTurmaComponent}
+  {path: 'gestor-consultar-turma', component: GestorConsultarTurmaComponent},
+  {path: 'gerenciar-alocacoes-professores', component: GerenciarAlocacoesProfessoresComponent},
+  {path: 'gerenciar-alocacoes-alunos', component: GerenciarAlocacoesAlunosComponent}
 ];
