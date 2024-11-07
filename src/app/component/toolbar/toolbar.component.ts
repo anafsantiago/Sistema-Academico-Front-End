@@ -26,7 +26,7 @@ export class ToolbarComponent {
   private hoveredElement: string | null = null; // Armazena qual botão está hover
 
 
-  sidenavWidth = computed(() => this.collapsed() ? '138px' : '466px')
+  sidenavWidth = computed(() => this.collapsed() ? '138px' : '320px')
 
   // Metodo para controlar o hover
   onHover(isHovering: boolean, element: string) {
