@@ -1,17 +1,49 @@
-<main>
-  <h1>{{ unidadeCurricular.nomeUnidadeCurricular }}</h1>
-  <div class="btn-wrapper">
-  </div>
-  <section class="baloes">
-    <div class="balao">
-      <div class="conteudo-coluna">
-        <div class="conteudo-item">
-          <div class="texto">
-            <p class="titulo">Ementa</p>
-            <p class="descricao">{{ unidadeCurricular.ementa }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
+<mat-card appearance="outlined">
+  <mat-card-header style="justify-content: center; font-weight: bold;">
+    {{ unidadeCurricular.nomeUnidadeCurricular | uppercase }}
+  </mat-card-header>
+  <mat-card-content>
+    <p class="titulo" style="justify-content: center; font-weight: bold ">EMENTA:</p>
+    <p class="descricao">{{ unidadeCurricular.ementa }}</p>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
+
+      <ng-container matColumnDef="unidade1">
+        <th mat-header-cell *matHeaderCellDef> Unidade 1</th>
+        <td mat-cell *matCellDef="let element"> {{ element.notas[0]?.valor || '-' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="unidade2">
+        <th mat-header-cell *matHeaderCellDef> Unidade 2</th>
+        <td mat-cell *matCellDef="let element"> {{ element.notas[1]?.valor || '-' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="unidade3">
+        <th mat-header-cell *matHeaderCellDef> Unidade 3</th>
+        <td mat-cell *matCellDef="let element"> {{ element.notas[2]?.valor || '-' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="reposicao">
+        <th mat-header-cell *matHeaderCellDef> Reposição</th>
+        <td mat-cell *matCellDef="let element"> {{ getNotaReposicao() }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="notaFinal">
+        <th mat-header-cell *matHeaderCellDef> Nota Final</th>
+        <td mat-cell *matCellDef="let element"> {{ element.resultadoFinal === 0 ? '-' : element.resultadoFinal }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="faltas">
+        <th mat-header-cell *matHeaderCellDef> Faltas</th>
+        <td mat-cell *matCellDef="let element"> {{ element.faltas }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="situacao">
+        <th mat-header-cell *matHeaderCellDef> Situação</th>
+        <td mat-cell *matCellDef="let element"> {{ situacaoAlocacao }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+      <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

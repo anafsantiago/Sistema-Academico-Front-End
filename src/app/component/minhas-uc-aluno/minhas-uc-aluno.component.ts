@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MatIcon} from '@angular/material/icon';
-import {NgForOf, NgIf} from '@angular/common';
+import {NgForOf, NgIf, UpperCasePipe} from '@angular/common';
 import {AlocacaoDiscenteService} from '../../service/alocacao-discente/alocacao-discente.service';
 import {AlocacaoDiscente} from '../../model/alocacaoDiscente';
 import {UnidadeCurricular} from '../../model/unidadeCurricular';
@@ -16,7 +16,8 @@ import {AlunoNotasFrequenciaComponent} from '../aluno-notas-frequencia/aluno-not
     NgForOf,
     NgIf,
     UcConteudoComponent,
-    AlunoNotasFrequenciaComponent
+    AlunoNotasFrequenciaComponent,
+    UpperCasePipe
   ],
   templateUrl: './minhas-uc-aluno.component.html',
   styleUrl: './minhas-uc-aluno.component.scss'
@@ -59,23 +60,15 @@ export class MinhasUcAlunoComponent implements OnInit {
     }
   }
 
-  mostrarConteudo(unidade: UnidadeCurricular): void {
+  mostrarConteudo(unidade: UnidadeCurricular, fichaIndividual: FichaIndividualDiscente, nomeUnidadeCurricular: string, situacaoAlocacao: string): void {
+    this.nomeUnidadeCurricularSelecionada = nomeUnidadeCurricular;
+    this.situacaoAlocacaoSelecionada = situacaoAlocacao;
+    this.fichaIndividualSelecionada = fichaIndividual;
     if (this.unidadeSelecionada === unidade) {
       this.exibirConteudo = !this.exibirConteudo;
     } else {
       this.unidadeSelecionada = unidade;
       this.exibirConteudo = true;
-    }
-  }
-
-  mostrarNotasFrequencias(fichaIndividual: FichaIndividualDiscente, nomeUnidadeCurricular: string, situacaoAlocacao: string): void {
-    this.nomeUnidadeCurricularSelecionada = nomeUnidadeCurricular;
-    this.situacaoAlocacaoSelecionada = situacaoAlocacao;
-    if (this.fichaIndividualSelecionada === fichaIndividual) {
-      this.exibirNotasFrequencias = !this.exibirNotasFrequencias;
-    } else {
-      this.fichaIndividualSelecionada = fichaIndividual;
-      this.exibirNotasFrequencias = true;
     }
   }
 

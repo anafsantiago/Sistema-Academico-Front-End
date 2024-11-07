@@ -16,10 +16,14 @@ h1 {
 }
 
 .baloes {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Organiza em 2 colunas */
-  gap: 50px;
+  display: flex;
+  width: 100%;
+/*  grid-template-columns: repeat(3, 1fr); !* Organiza em 2 colunas *!
   justify-content: center;
+  margin-bottom: 20px*/
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .balao {
@@ -33,6 +37,7 @@ h1 {
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
+  min-height: 180px; /* Define uma altura mínima para alinhar os botões */
 }
 
 .balao p {
@@ -49,7 +54,7 @@ h1 {
 .btn-wrapper {
   display: flex;
   gap: 10px;
-  margin-top: 15px;
+  margin-top: auto; /* Empurra o botão para o final da balao */
 }
 
 .btn-conteudo,

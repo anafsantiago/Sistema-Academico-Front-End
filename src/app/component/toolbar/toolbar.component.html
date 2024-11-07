@@ -5,7 +5,7 @@
     <img src="logo-toolbar.svg" alt="menu icon" style="width: 92px; height: 89px;" />
   </button>
 
-  <button class="sidebar-icon1" mat-button [ngClass]="{'hovered': isHovered('unidade')}"
+<!--  <button class="sidebar-icon1" mat-button [ngClass]="{'hovered': isHovered('unidade')}"
           (mouseenter)="onHover(true, 'icon1')" (mouseleave)="onHover(false, 'icon1')">
     <img src="sidebar-icon1.svg" style="width: 45px; height: 45px;"/>
   </button>
@@ -13,9 +13,9 @@
   <button class="sidebar-news" mat-button [ngClass]="{'hovered': isHovered('noticias')}"
           (mouseenter)="onHover(true, 'news')" (mouseleave)="onHover(false, 'news')">
     <img src="sidebar-news.svg" style="width: 45px; height: 45px;"/>
-  </button>
+  </button>-->
 
-  <button class="sidebar-logout" mat-button [ngClass]="{'hovered': isHovered('sair')}"
+  <button class="sidebar-icon1" mat-button [ngClass]="{'hovered': isHovered('sair')}"
           (mouseenter)="onHover(true, 'logout')" (mouseleave)="onHover(false, 'logout')">
     <img src="sidebar-logout.svg" style="width: 45px; height: 45px;"/>
   </button>
@@ -26,14 +26,14 @@
 
   <mat-sidenav class="sidenav" opened mode="side" [style.width]="sidenavWidth()" (pointerleave)="collapsed.set(true)">
 
-    <button mat-button class="btnUnidadeCurricular" [ngClass]="{'hovered': isHovered('icon1')}"
+<!--    <button mat-button class="btnUnidadeCurricular" [ngClass]="{'hovered': isHovered('icon1')}"
             (mouseenter)="onHover(true, 'unidade')" (mouseleave)="onHover(false, 'unidade')">
       <p>Minha Unidade Curricular</p>
     </button>
     <button mat-button class="btnNoticas" [ngClass]="{'hovered': isHovered('news')}"
             (mouseenter)="onHover(true, 'noticias')" (mouseleave)="onHover(false, 'noticias')">
       <p>Notícias</p>
-    </button>
+    </button>-->
     <button mat-button class="btnSair" [ngClass]="{'hovered': isHovered('logout')}"
             (mouseenter)="onHover(true, 'sair')" (mouseleave)="onHover(false, 'sair')">
       <p>Sair</p>

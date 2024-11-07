@@ -1,29 +1,25 @@
 <main>
-  <h1>Minhas Unidades Curriculares</h1>
+  <h1 class="baloes">Minhas Unidades Curriculares</h1>
   <section class="baloes">
     <div *ngFor="let alocacaoDiscente of alocacoesDiscente" class="balao">
-      <p>{{ alocacaoDiscente.turmaUnidadeCurricular.unidadeCurricular.nomeUnidadeCurricular }}</p>
+      <p>{{ alocacaoDiscente.turmaUnidadeCurricular.unidadeCurricular.nomeUnidadeCurricular | uppercase }}</p>
       <div class="btn-wrapper">
         <button type="button"
                 class="btn-conteudo"
-                (click)="mostrarConteudo(alocacaoDiscente.turmaUnidadeCurricular.unidadeCurricular)">
-          Conteúdo
-        </button>
-        <button type="button"
-                class="btn-notas"
-                (click)="mostrarNotasFrequencias(alocacaoDiscente.fichaIndividualAlocacaoDiscente,
-                                                 alocacaoDiscente.turmaUnidadeCurricular.unidadeCurricular.nomeUnidadeCurricular,
-                                                 alocacaoDiscente.situacaoAlocacaoDiscente.descricao)">
-
-          Notas e Frequência
+                (click)="mostrarConteudo(alocacaoDiscente.turmaUnidadeCurricular.unidadeCurricular,
+                                         alocacaoDiscente.fichaIndividualAlocacaoDiscente,
+                                         alocacaoDiscente.turmaUnidadeCurricular.unidadeCurricular.nomeUnidadeCurricular,
+                                         alocacaoDiscente.situacaoAlocacaoDiscente.descricao)">
+          Informações
         </button>
       </div>
     </div>
   </section>
-  <app-uc-conteudo *ngIf="exibirConteudo" [unidadeCurricular]="unidadeSelecionada"></app-uc-conteudo>
-  <app-aluno-notas-frequencia *ngIf="exibirConteudo"
-                              [fichaIndividual]="fichaIndividualSelecionada"
-                              [nomeUnidadeCurricular]="nomeUnidadeCurricularSelecionada"
-                              [situacaoAlocacao]="situacaoAlocacaoSelecionada">
-  </app-aluno-notas-frequencia>
+  <section class="baloes">
+    <app-uc-conteudo *ngIf="exibirConteudo" [unidadeCurricular]="unidadeSelecionada"
+                     [fichaIndividual]="fichaIndividualSelecionada"
+                     [nomeUnidadeCurricular]="nomeUnidadeCurricularSelecionada"
+                     [situacaoAlocacao]="situacaoAlocacaoSelecionada">
+    </app-uc-conteudo>
+  </section>
 </main>

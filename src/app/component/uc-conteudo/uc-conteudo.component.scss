@@ -15,7 +15,6 @@
 
 main {
   min-height: 100vh; // Altura total da tela, já que a toolbar é fixa
-  padding: 20px;
   z-index: 1; /* Deve estar abaixo dos overlays */
   background-color: $blue-bg;
   flex-direction: column; /* Empilha os elementos verticalmente */
@@ -34,9 +33,3 @@ main {
   display: flex;
 
 }
-
-.app-uc-conteudo{
-  width: 100%;
-}
-
-
