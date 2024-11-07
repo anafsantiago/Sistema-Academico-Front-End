@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {HorarioDataComponent} from '../../component/horario-data/horario-data.component';
 import {MinhasUcAlunoComponent} from '../../component/minhas-uc-aluno/minhas-uc-aluno.component';
 import {ToolbarComponent} from '../../component/toolbar/toolbar.component';

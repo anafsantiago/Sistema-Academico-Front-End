@@ -15,11 +15,22 @@ h1 {
   margin-bottom: 20px;
 }
 
-.baloes {
+/*.baloes {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Organiza em 2 colunas */
+  grid-template-columns: repeat(3, 1fr); !* Organiza em 2 colunas *!
   gap: 50px;
   justify-content: center;
+}*/
+
+.baloes {
+  display: flex;
+  width: 100%;
+  /*  grid-template-columns: repeat(3, 1fr); !* Organiza em 2 colunas *!
+    justify-content: center;
+    margin-bottom: 20px*/
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .balao {

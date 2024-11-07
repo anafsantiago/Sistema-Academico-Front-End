@@ -41,7 +41,7 @@ export class MinhasUcAlunoComponent implements OnInit {
       const usuario = JSON.parse(usuarioLogado);
       const idPessoa = usuario.pessoa.id;
 
-      this.alocacaoDiscenteService.carregarAlocacoesDiscente(idPessoa).subscribe({
+      this.alocacaoDiscenteService.carregarAlocacoesDiscentePorIdPessoa(idPessoa).subscribe({
         next: alocacoesDiscente => {
           this.alocacoesDiscente = alocacoesDiscente;
 

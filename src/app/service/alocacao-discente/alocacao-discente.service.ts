@@ -12,12 +12,20 @@ export class AlocacaoDiscenteService {
 
   constructor(private http: HttpClient) {}
 
-  carregarAlocacoesDiscente(idPessoa: number | undefined): Observable<AlocacaoDiscente[]> {
+  carregarAlocacoesDiscentePorIdPessoa(idPessoa: number | undefined): Observable<AlocacaoDiscente[]> {
     let params = new HttpParams();
     if (idPessoa) {
       params = params.append('idPessoa', idPessoa);
     }
     return this.http.get<AlocacaoDiscente[]>(`${this.baseUrl}/carregar-alocacao`, { params });
+  }
+
+  carregarAlocacoesDiscentePorIdTurma(idTurma: number | undefined): Observable<AlocacaoDiscente[]> {
+    let params = new HttpParams();
+    if (idTurma) {
+      params = params.append('idTurma', idTurma);
+    }
+    return this.http.get<AlocacaoDiscente[]>(`${this.baseUrl}/carregar-alocacoes`, { params });
   }
 
 }

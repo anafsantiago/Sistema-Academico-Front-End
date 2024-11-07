@@ -1,64 +1,26 @@
 <main>
-  <h1>Minhas Turmas</h1>
+  <h1 class="baloes">Minhas Turmas</h1>
   <section class="baloes">
-    <div class="balao primeiro-balao">
-      <p>Unidade Curricular 1</p>
-      <a>Nome do curso</a>
-      <div class="btn-wrapper">
-        <button type="button" class="btn-relatorio">Acompanhar Relatorio</button>
-        <button type="button" class="btn-notas">Registrar Notas e Frequência</button>
-        <button type="button" class="btn-registrar">Registrar Conteúdo</button>
-      </div>
-    </div>
+    <div *ngFor="let alocacaoDocente of alocacoesDocente" class="balao">
+      <p>{{ alocacaoDocente.turmaUnidadeCurricular.unidadeCurricular.nomeUnidadeCurricular | uppercase }}</p>
+      <a>{{ getCursoPorIdTurma(alocacaoDocente.turmaUnidadeCurricular.id)?.nomeCurso }}</a>
 
-    <div class="balao segundo-balao">
-      <p>Unidade Curricular 2</p>
-      <a>Nome do curso</a>
       <div class="btn-wrapper">
-        <button type="button" class="btn-relatorio">Acompanhar Relatorio</button>
+        <button type="button"
+                class="btn-relatorio"
+                (click)="mostrarConteudo(alocacaoDocente.turmaUnidadeCurricular)">
+          Relatório da Turma
+        </button>
         <button type="button" class="btn-notas">Registrar Notas e Frequência</button>
-        <button type="button" class="btn-registrar">Registrar Conteúdo</button>
       </div>
     </div>
+  </section>
 
-    <div class="balao terceiro-balao">
-      <p>Unidade Curricular 3</p>
-      <a>Nome do curso</a>
-      <div class="btn-wrapper">
-        <button type="button" class="btn-relatorio">Acompanhar Relatorio</button>
-        <button type="button" class="btn-notas">Registrar Notas e Frequência</button>
-        <button type="button" class="btn-registrar">Registrar Conteúdo</button>
-      </div>
-    </div>
-
-    <div class="balao quarto-balao">
-      <p>Unidade Curricular 4</p>
-      <a>Nome do curso</a>
-      <div class="btn-wrapper">
-        <button type="button" class="btn-relatorio">Acompanhar Relatorio</button>
-        <button type="button" class="btn-notas">Registrar Notas e Frequência</button>
-        <button type="button" class="btn-registrar">Registrar Conteúdo</button>
-      </div>
-    </div>
-
-    <div class="balao quinto-balao">
-      <p>Unidade Curricular 5</p>
-      <a>Nome do curso</a>
-      <div class="btn-wrapper">
-        <button type="button" class="btn-relatorio">Acompanhar Relatorio</button>
-        <button type="button" class="btn-notas">Registrar Notas e Frequência</button>
-        <button type="button" class="btn-registrar">Registrar Conteúdo</button>
-      </div>
-    </div>
-
-    <div class="balao sexto-balao">
-      <p>Unidade Curricular 6</p>
-      <a>Nome do curso</a>
-      <div class="btn-wrapper">
-        <button type="button" class="btn-relatorio">Acompanhar Relatorio</button>
-        <button type="button" class="btn-notas">Registrar Notas e Frequência</button>
-        <button type="button" class="btn-registrar">Registrar Conteúdo</button>
-      </div>
-    </div>
+  <section class="baloes">
+    <app-prof-conteudo-layout
+      *ngIf="exibirConteudo"
+      [alocacoesDiscente]="alocacoesDiscente"
+      [turmaUnidade]="turmaSelecionada">
+    </app-prof-conteudo-layout>
   </section>
 </main>
