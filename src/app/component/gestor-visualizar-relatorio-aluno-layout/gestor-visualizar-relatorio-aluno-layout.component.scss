@@ -1,0 +1,128 @@
+@import "../../../estilo/cores.scss";
+
+
+// Variáveis SASS para datas e cores de destaque
+$data-color: #555;
+$highlight-color: #e0f7fa;
+
+main {
+  display: grid;
+  justify-content: center;
+  padding: 20px;
+  background-color: $blue-bg;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+
+h2 {
+  font-size: 1.3em;
+  font-weight: 500;
+  color: $secondary-color;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1em;
+  color: $secondary-color;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-weight: 600;
+}
+
+.btn-wrapper {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 20px;
+}
+
+.btn-pag-ativa,
+.btn-pag-inativa {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: opacity 0.3s ease;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.btn-pag-inativa {
+  background-color: white;
+  color: $secondary-color;
+}
+
+.btn-pag-ativa {
+  background-color: $secondary-color;
+  color: white;
+}
+
+.h3-titulo {
+  padding-left: 40px;
+  padding-top: 32px;
+}
+
+.card-consultar-relatorio-prof {
+  background-color: white;
+  border-radius: 20px;
+  width: 800px;
+  max-width: 800px;
+}
+
+.card-consultar-relatorio-prof-titulo {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  justify-content: center;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.card-consultar-relatorio-prof-tabela {
+  padding: 0 20px;
+  padding-bottom: 40px;
+}
+
+.card-consultar-relatorio-prof-tabela div {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.card-consultar-relatorio-prof-tabela div:last-child {
+  margin-bottom: 0;
+}
+
+.filtros {
+  display: flex;
+  gap: 32px;
+  padding: 0 40px;
+}
+
+.filtros select {
+  background-color: #f3f3f3;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  color: #404040;
+  width: 100%;
+  box-sizing: border-box;
+  height: 32px;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  padding-left: 8px;
+  font-size: 0.75em;
+}
