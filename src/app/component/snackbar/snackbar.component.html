@@ -1,11 +1,11 @@
-<mat-form-field>
+
   <mat-label>Message</mat-label>
   <input matInput value="Docente Alocado com sucesso!" #message>
-</mat-form-field>
 
-<mat-form-field>
+
+
   <mat-label>Action</mat-label>
   <input matInput value="Fechar" #action>
-</mat-form-field>
+
 
 <button mat-stroked-button (click)="openSnackBar(message.value, action.value)">Show snack-bar</button>
