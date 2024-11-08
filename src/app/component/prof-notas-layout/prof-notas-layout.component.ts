@@ -61,7 +61,7 @@ export class ProfNotasLayoutComponent implements OnChanges {
   }
 
   colunas: string[] = [
-    'discente', 'unidade1', 'unidade2', 'unidade3', 'reposicao', 'notaFinal', 'faltas', 'situacaoAluno'];
+    'discente', 'unidade1', 'unidade2', 'unidade3', 'reposicao', 'faltas'];
   dataSource = new MatTableDataSource<any>();
 
   ngOnChanges(changes: SimpleChanges): void {

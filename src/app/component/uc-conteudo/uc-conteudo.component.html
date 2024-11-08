@@ -3,28 +3,28 @@
     {{ unidadeCurricular.nomeUnidadeCurricular | uppercase }}
   </mat-card-header>
   <mat-card-content>
-    <p class="titulo" style="justify-content: center; font-weight: bold ">EMENTA:</p>
+    <p class="titulo" style="justify-content: center; font-weight: bold">EMENTA:</p>
     <p class="descricao">{{ unidadeCurricular.ementa }}</p>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
 
       <ng-container matColumnDef="unidade1">
         <th mat-header-cell *matHeaderCellDef> Unidade 1</th>
-        <td mat-cell *matCellDef="let element"> {{ element.nota1 || '-' }}</td>
+        <td mat-cell *matCellDef="let element"> {{ element.notaUnidade1 | number:'1.1-1' || '-' }}</td>
       </ng-container>
 
       <ng-container matColumnDef="unidade2">
         <th mat-header-cell *matHeaderCellDef> Unidade 2</th>
-        <td mat-cell *matCellDef="let element"> {{ element.nota2 || '-' }}</td>
+        <td mat-cell *matCellDef="let element"> {{ element.notaUnidade2 | number:'1.1-1' || '-' }}</td>
       </ng-container>
 
       <ng-container matColumnDef="unidade3">
         <th mat-header-cell *matHeaderCellDef> Unidade 3</th>
-        <td mat-cell *matCellDef="let element"> {{ element.nota3 || '-' }}</td>
+        <td mat-cell *matCellDef="let element"> {{ element.notaUnidade3 | number:'1.1-1' || '-' }}</td>
       </ng-container>
 
       <ng-container matColumnDef="reposicao">
         <th mat-header-cell *matHeaderCellDef> Reposição</th>
-        <td mat-cell *matCellDef="let element"> {{ element.notaReposicao || '-' }}</td>
+        <td mat-cell *matCellDef="let element"> {{ element.notaReposicao === 0 ? 'N/A' : (element.notaReposicao | number:'1.1-1') || '-' }}</td>
       </ng-container>
 
 <!--      <ng-container matColumnDef="reposicao">
@@ -32,10 +32,10 @@
         <td mat-cell *matCellDef="let element"> {{ getNotaReposicao() }}</td>
       </ng-container>-->
 
-      <ng-container matColumnDef="notaFinal">
+<!--      <ng-container matColumnDef="notaFinal">
         <th mat-header-cell *matHeaderCellDef> Nota Final</th>
-        <td mat-cell *matCellDef="let element"> {{ element.resultadoFinal === 0 ? '-' : element.resultadoFinal }}</td>
-      </ng-container>
+        <td mat-cell *matCellDef="let element"> {{ element.resultadoFinal === 0 ? '-' : (element.resultadoFinal | number:'1.1-1') }}</td>
+      </ng-container>-->
 
       <ng-container matColumnDef="faltas">
         <th mat-header-cell *matHeaderCellDef> Faltas</th>

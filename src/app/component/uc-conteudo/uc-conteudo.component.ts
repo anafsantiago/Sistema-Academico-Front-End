@@ -4,7 +4,7 @@ import {ToolbarComponent} from '../toolbar/toolbar.component';
 import {UserOptionsComponent} from '../user-options/user-options.component';
 import {UnidadeCurricular} from '../../model/unidadeCurricular';
 import {MatCard, MatCardContent, MatCardHeader} from '@angular/material/card';
-import {NgIf, TitleCasePipe, UpperCasePipe} from '@angular/common';
+import {DecimalPipe, NgIf, TitleCasePipe, UpperCasePipe} from '@angular/common';
 import {FichaIndividualDiscente} from '../../model/fichaIndividualDiscente';
 import {MatTable, MatTableDataSource, MatTableModule} from '@angular/material/table';
 
@@ -22,7 +22,8 @@ import {MatTable, MatTableDataSource, MatTableModule} from '@angular/material/ta
     MatTable,
     MatTableModule,
     UpperCasePipe,
-    TitleCasePipe
+    TitleCasePipe,
+    DecimalPipe
   ],
   templateUrl: './uc-conteudo.component.html',
   styleUrl: './uc-conteudo.component.scss'
@@ -34,7 +35,7 @@ export class UcConteudoComponent implements OnInit {
   @Input() situacaoAlocacao!: string;
 
   colunas: string[] = [
-    'unidade1', 'unidade2', 'unidade3', 'reposicao', 'notaFinal', 'faltas', 'situacao'
+    'unidade1', 'unidade2', 'unidade3', 'reposicao', 'faltas', 'situacao'
   ];
   dataSource = new MatTableDataSource<any>();
 

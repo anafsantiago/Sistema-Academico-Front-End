@@ -1,15 +1,13 @@
 import { Component, computed, signal } from '@angular/core';
+import { Router } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatSidenavModule } from "@angular/material/sidenav";
-
 import { MatListModule } from '@angular/material/list';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
-
-
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
@@ -20,13 +18,13 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class ToolbarComponent {
 
-
-  collapsed = signal(false)
+  collapsed = signal(false);
 
   private hoveredElement: string | null = null; // Armazena qual botão está hover
 
+  constructor(private router: Router) {}
 
-  sidenavWidth = computed(() => this.collapsed() ? '138px' : '320px')
+  sidenavWidth = computed(() => this.collapsed() ? '138px' : '320px');
 
   // Metodo para controlar o hover
   onHover(isHovering: boolean, element: string) {
@@ -35,5 +33,12 @@ export class ToolbarComponent {
 
   isHovered(element: string): boolean {
     return this.hoveredElement === element;
+  }
+
+  // Método para logout e redirecionamento
+  sair(): void {
+    localStorage.clear();
+    sessionStorage.clear();
+    this.router.navigate(['/login']);
   }
 }
