@@ -10,7 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { UsuarioService } from '../../service/usuario/usuario.service';
 import { jwtDecode } from "jwt-decode";
-import { MatSnackBar } from '@angular/material/snack-bar'; // Import do MatSnackBar
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -34,20 +34,19 @@ export class LoginComponent {
     private loginService: LoginService,
     private usuarioService: UsuarioService,
     private router: Router,
-    private snackBar: MatSnackBar // Injeta o MatSnackBar
+    private snackBar: MatSnackBar
   ) {
     this.login = new FormGroup({
       usuario: this.usuario,
       senha: this.senha
     });
 
-    // Observa mudanças no campo de email e atualiza a mensagem de erro
     this.usuario.valueChanges.subscribe(() => this.updateErrorMessage());
   }
 
   autenticar() {
     const login: Login = {
-      usuario: this.usuario.value ?? '', // Se for null, usa uma string vazia
+      usuario: this.usuario.value ?? '',
       senha: this.senha.value ?? ''
     };
 
@@ -64,7 +63,7 @@ export class LoginComponent {
             if (usuarioLogado.papeis.some(papel => papel.descricao === 'DISCENTE')) {
               this.router.navigate(['/home-aluno']);
             } else if (usuarioLogado.papeis.some(papel => papel.descricao === 'GESTOR')) {
-                this.router.navigate(['/home-gestor']);
+                this.router.navigate(['/home-professor']);
             } else if (usuarioLogado.papeis.some(papel => papel.descricao === 'DOCENTE')) {
               this.router.navigate(['/home-professor']);
             }
@@ -81,7 +80,7 @@ export class LoginComponent {
         this.snackBar.open('Erro ao autenticar. Verifique seu Usuario e Senha.', 'Fechar', {
           duration: 5000,
           verticalPosition: 'top'
-        }); // Exibe o Snackbar com a mensagem de erro
+        });
       },
       complete: () => {
         console.log('Autenticação completa.');

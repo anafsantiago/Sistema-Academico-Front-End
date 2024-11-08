@@ -2,8 +2,6 @@
 <app-login-layout>
     <form [formGroup]="login" (ngSubmit)="autenticar()">
 
-
-    <!-- Campo de Email -->
     <mat-form-field appearance="fill">
       <mat-label>Usuário:</mat-label>
       <input matInput formControlName="usuario" placeholder="Seu usuário">
@@ -12,7 +10,6 @@
       </mat-error>
     </mat-form-field>
 
-    <!-- Campo de Senha -->
     <mat-form-field appearance="fill">
       <mat-label>Senha:</mat-label>
       <input matInput formControlName="senha" placeholder="Sua senha" type="password">
@@ -21,16 +18,13 @@
       </mat-error>
     </mat-form-field>
 
-    <!-- Link para recuperação de senha -->
     <div class="forgot-senha">
       <a href="#">Esqueceu a senha?</a>
     </div>
 
-    <!-- Botão de Login -->
     <div class="btn-wrapper">
       <button type="submit" class="btn-entrar">ENTRAR</button>
     </div>
   </form>
-
 
 </app-login-layout>
