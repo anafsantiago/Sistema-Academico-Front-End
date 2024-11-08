@@ -1,0 +1,41 @@
+<main>
+  <section class="card-turma">
+    <div class="card-turma-titulo">
+      <h3>Gerenciar Alocações</h3>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <h3 style="color: #001f4d; padding-right: 10px">Tipo de alocação:</h3>
+      <mat-chip-listbox class="btn-wrapper" [(ngModel)]="alocacaoSelecionada">
+        <mat-chip-option *ngFor="let op of opcoesAlocacao" [value]="op" [selected]="op === 'Aluno'">
+          {{ op }}
+        </mat-chip-option>
+      </mat-chip-listbox>
+    </div>
+
+    <form class="formulario">
+      <label [for]="'codigoOuCpf'">{{ alocacaoSelecionada === 'Aluno' ? 'CPF do Aluno' : 'CPF do Professor' }}:</label>
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <input style="height: 70%" type="text" id="codigoOuCpf" [(ngModel)]="codigoOuCpf" name="codigoOuCpf" placeholder="Digite o código ou CPF"/>
+        <button mat-mini-fab style="background-color: white; color: black; align-self: center;" (click)="carregarDiscente(codigoOuCpf)">
+          <mat-icon>search</mat-icon>
+        </button>
+      </div>
+
+      <div>
+        <label [for]="nome">{{ alocacaoSelecionada === 'Aluno' ? 'Nome do Aluno' : 'Nome do Professor' }}:</label>
+        <input type="text" [id]="nome" [(ngModel)]="nome" name="nome" [value]="discente.pessoa.nome" placeholder=" - " readonly>
+      </div>
+
+      <div>
+        <label for="alocacao">Turma:</label>
+        <select name="alocacao" id="alocacao" [(ngModel)]="turmaSelecionada">
+          <option [ngValue]="null">Selecione a Turma</option>
+          <option *ngFor="let turma of turmasUnidades" [ngValue]="turma">
+            {{ turma.unidadeCurricular.nomeUnidadeCurricular }} - {{ turma.codigoTurma }}
+          </option>
+        </select>
+      </div>
+      <button class="salvar" (click)="alocar()" type="button">Salvar</button>
+    </form>
+  </section>
+</main>

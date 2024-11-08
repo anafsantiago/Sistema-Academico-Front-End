@@ -3,7 +3,7 @@
   <section class="baloes">
     <div class="balao primeiro-balao">
       <p>Gerenciar Turmas</p>
-      <a>Crie, edite ou exclua turmas do sistema</a>
+      <a>Crie, edite ou exclua turmas do sistema.</a>
       <div class="btn-wrapper">
         <button type="button" class="btn-notas" (click)="criarTurma()">Criar Turmas</button>
       </div>
@@ -11,14 +11,18 @@
 
     <div class="balao segundo-balao">
       <p>Alocar Alunos ou Professores</p>
-      <a>Aloque alunos ou professores em turmas específicas</a>
+      <a>Aloque alunos ou professores em turmas específicas.</a>
       <div class="btn-wrapper">
-        <button type="button" class="btn-notas">Alocar Aluno ou Professor</button>
+        <button type="button" class="btn-notas" (click)="alocar()">Alocar Aluno ou Professor</button>
       </div>
     </div>
   </section>
   <app-gestor-criar-turma-layout class="baloes"
                                  *ngIf="exibirCriarTurma"
-                                 (atualizarPai)="recarregarDadosPai()">
-  ></app-gestor-criar-turma-layout>
+                                 (atualizarPai)="recarregarDadosCriarTurma()">
+  </app-gestor-criar-turma-layout>
+  <app-gerenciar-alocacoes-alunos class="baloes"
+                                  *ngIf="exibirAlocar"
+                                  (atualizarPai)="recarregarDadosAlocacao()">
+  </app-gerenciar-alocacoes-alunos>
 </main>

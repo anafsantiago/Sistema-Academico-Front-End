@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {TurmaUnidadeCurricular} from '../../model/turmaUnidadeCurricular';
+import {UnidadeCurricular} from '../../model/unidadeCurricular';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,15 @@ export class TurmaUnidadeCurricularService {
   private baseUrl = 'http://localhost:8080/api/turma';
 
   constructor(private http: HttpClient) {
+  }
+
+  carregarTurmasUnidadesAlocaveis(idDiscente: number): Observable<TurmaUnidadeCurricular[]> {
+    let params = new HttpParams();
+    if (idDiscente) {
+      params = params.append('idDiscente', idDiscente);
+    }
+    const url = `${this.baseUrl}/carregar-turmas-alocaveis`;
+    return this.http.get<TurmaUnidadeCurricular[]>(url, {params});
   }
 
   gerarCodigoTurma(siglaUnidade: string, abvTurno: string): Observable<string> {

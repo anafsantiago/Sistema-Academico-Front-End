@@ -28,4 +28,16 @@ export class AlocacaoDiscenteService {
     return this.http.get<AlocacaoDiscente[]>(`${this.baseUrl}/carregar-alocacoes`, { params });
   }
 
+  cadastrarAlocacao(idDiscente: number, idTurma: number): Observable<string> {
+    const params = new HttpParams()
+      .set('idDiscente', idDiscente.toString())
+      .set('idTurma', idTurma.toString());
+
+    return this.http.post<string>(`${this.baseUrl}/cadastrar`, null, {
+      params,
+      responseType: 'text' as 'json'
+    });
+  }
+
+
 }

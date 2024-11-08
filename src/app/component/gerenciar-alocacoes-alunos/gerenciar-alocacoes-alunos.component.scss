@@ -1,0 +1,169 @@
+@import "../../../estilo/cores.scss";
+
+
+// Variáveis SASS para datas e cores de destaque
+$data-color: #555;
+$highlight-color: #e0f7fa;
+
+
+main {
+  display: grid;
+  justify-content: center;
+  background-color: $blue-bg;
+  padding: 20px;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 1.3em;
+  font-weight: 500;
+  color: $secondary-color;
+  margin-bottom: 20px;
+}
+
+
+h3 {
+  font-size: 1em;
+  color: white;
+  font-weight: 500;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+
+.btn-wrapper {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 20px;
+}
+
+
+.btn-criar-turma,
+.btn-consultar-turma {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: opacity 0.3s ease;
+
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.btn-consultar-turma {
+  background-color: white;
+  color: $secondary-color;
+}
+
+.btn-criar-turma {
+  background-color: $secondary-color;
+  color: white;
+}
+
+.card-turma {
+  background-color: white;
+  border-radius: 20px;
+  width: 800px;
+  max-width: 800px;
+}
+
+.card-turma-titulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $secondary-color;
+  border-radius: 20px 20px 0 0;
+}
+
+.card-turma-titulo h3 {
+  margin: 0; /* Remove default margins */
+}
+
+.formulario {
+  padding: 32px 60px;
+  display: grid;
+  justify-content: center;
+}
+
+.formulario label {
+  color: $secondary-color;
+  font-weight: bold;
+  font-size: 1em;
+  display: block;
+}
+
+.formulario input, .codigo-turma {
+  background-color: #F3F3F3;
+  border: 1px solid rgba(0, 0, 0, 0.1) ;
+  border-radius: 20px;
+  width: 450px;
+  box-sizing: border-box;
+  height: 32px;
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+
+.codigo-turma p {
+  font-size: 0.75em;
+  color: #404040;
+  padding-top: 4px;
+  padding-left: 10px;
+}
+
+.formulario select {
+  background-color: #F3F3F3;
+  border: 1px solid rgba(0, 0, 0, 0.1) ;
+  border-radius: 20px;
+  color: #404040;
+  width: 100%;
+  box-sizing: border-box;
+  height: 32px;
+  margin-top: 12px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  padding-left: 8px;
+  font-size: 0.75em;
+  letter-spacing: 0.5px;
+}
+
+
+.salvar {
+  grid-column: 1/-1;
+  justify-self: end;
+  padding: 10px 25px;
+  border-radius: 25px;
+  border: none;
+  background-color: $secondary-color;
+  color: white;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+  font-size: 1em;
+  margin-top: 32px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+.salvar:hover {
+  background-color: $primary-color; /* Substitua com a cor desejada */
+}
+
+.btn-notas {
+  background-color: $secondary-color;
+  color: white;
+}
+.btn-wrapper {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
