@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {MatCard, MatCardContent, MatCardHeader} from '@angular/material/card';
 import {
   MatCell,
@@ -21,8 +21,8 @@ import {MatFormField} from '@angular/material/form-field';
 import {MatInput} from '@angular/material/input';
 import {FichaIndividualDiscente} from '../../model/fichaIndividualDiscente';
 import {FichaIndividualService} from '../../service/ficha-individual/ficha-individual.service';
-import {AlocacaoDiscenteService} from '../../service/alocacao-discente/alocacao-discente.service';
 import {AlocacaoDocente} from '../../model/alocacaoDocente';
+import {TurmaUnidadeCurricularService} from '../../service/turma-unidade-curricular/turma-unidade-curricular.service';
 
 @Component({
   selector: 'app-prof-notas-layout',
@@ -57,7 +57,7 @@ export class ProfNotasLayoutComponent implements OnChanges {
   @Input() turmaUnidade!: TurmaUnidadeCurricular;
 
   constructor(private fichaIndividualService: FichaIndividualService,
-              private alocacaoDiscenteService: AlocacaoDiscenteService) {
+              private turmaUnidadeService: TurmaUnidadeCurricularService,) {
   }
 
   colunas: string[] = [
@@ -109,6 +109,26 @@ export class ProfNotasLayoutComponent implements OnChanges {
       }
     });
   }
+
+  consolidarTurma(): void {
+    const idTurma = this.turmaUnidade.id;
+
+    this.turmaUnidadeService.consolidarTurma(idTurma).subscribe({
+      next: (response) => {
+        console.log('Turma consolidada com sucesso!', response);
+        // Opcional: Exibir uma mensagem de sucesso para o usuário
+      },
+      error: (error) => {
+        console.error('Erro ao consolidar turma', error);
+        // Opcional: Exibir uma mensagem de erro para o usuário
+      },
+      complete: () => {
+        console.log('Processo de consolidação completo');
+        this.atualizarPai.emit(); // Emite evento para atualizar o componente pai
+      }
+    });
+  }
+
 
   validateInput(event: any) {
     const input = event.target as HTMLInputElement;

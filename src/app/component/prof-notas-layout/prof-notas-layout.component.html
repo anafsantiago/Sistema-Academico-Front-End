@@ -80,8 +80,11 @@
       <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
     </table>
     <div style="display: flex; justify-content: flex-end;">
-      <button type="button" class="btn-notas" (click)="salvarNotasFrequencias()">
+      <button type="button" class="btn-notas" style="margin-right: 10px;" (click)="salvarNotasFrequencias()">
         Salvar
+      </button>
+      <button type="button" class="btn-notas" (click)="consolidarTurma()">
+        Consolidar Turma
       </button>
     </div>
   </mat-card-content>
