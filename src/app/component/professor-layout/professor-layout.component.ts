@@ -86,10 +86,8 @@ export class ProfessorLayoutComponent implements OnInit {
 
   mostrarDesempenhoTurma(turmaUnidade: TurmaUnidadeCurricular): void {
     if (this.exibirDesempenhoTurma && this.turmaSelecionada === turmaUnidade) {
-      // Se já estiver mostrando o desempenho da turma selecionada, oculta
       this.exibirDesempenhoTurma = false;
     } else {
-      // Caso contrário, ativa a exibição de desempenho e desativa notas/frequência
       this.turmaSelecionada = turmaUnidade;
       this.exibirDesempenhoTurma = true;
       this.exibirNotasFrequencia = false;
@@ -98,10 +96,8 @@ export class ProfessorLayoutComponent implements OnInit {
 
   lancarNotasFrequencias(turmaUnidade: TurmaUnidadeCurricular): void {
     if (this.exibirNotasFrequencia && this.turmaSelecionada === turmaUnidade) {
-      // Se já estiver mostrando notas e frequência da turma selecionada, oculta
       this.exibirNotasFrequencia = false;
     } else {
-      // Caso contrário, ativa a exibição de notas/frequência e desativa desempenho
       this.turmaSelecionada = turmaUnidade;
       this.exibirNotasFrequencia = true;
       this.exibirDesempenhoTurma = false;

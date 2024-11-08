@@ -68,7 +68,7 @@ export class GerenciarAlocacoesAlunosComponent implements OnInit {
         error: (error) => {
           console.log('Erro ao carregar discente.', error.error);
         },
-        complete() {
+        complete: () => {  // Aqui usamos uma função de seta
           console.log('Discente carregado com sucesso.');
         }
       });
@@ -91,10 +91,12 @@ export class GerenciarAlocacoesAlunosComponent implements OnInit {
       this.alocacaoDiscenteService.cadastrarAlocacao(this.discente.id, this.turmaSelecionada.id).subscribe({
         next: (mensagem) => {
           console.log('Alocação realizada com sucesso:', mensagem);
-          this.atualizarPai.emit();
         },
         error: (error) => {
           console.log('Erro ao realizar a alocação:', error);
+        },
+        complete: () => {
+          this.atualizarPai.emit();
         }
       });
     }
