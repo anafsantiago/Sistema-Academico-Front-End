@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {MatCard, MatCardContent, MatCardHeader} from '@angular/material/card';
 import {
   MatCell,
@@ -23,6 +23,9 @@ import {FichaIndividualDiscente} from '../../model/fichaIndividualDiscente';
 import {FichaIndividualService} from '../../service/ficha-individual/ficha-individual.service';
 import {AlocacaoDocente} from '../../model/alocacaoDocente';
 import {TurmaUnidadeCurricularService} from '../../service/turma-unidade-curricular/turma-unidade-curricular.service';
+import {MatDialog} from '@angular/material/dialog';
+import{DialogoComponent} from '../dialogo/dialogo.component';
+import {DialogoConsolidarComponent} from '../dialogo-consolidar/dialogo-consolidar.component';
 
 @Component({
   selector: 'app-prof-notas-layout',
@@ -45,7 +48,9 @@ import {TurmaUnidadeCurricularService} from '../../service/turma-unidade-curricu
     FormsModule,
     MatFormField,
     MatInput,
-    DecimalPipe
+    DecimalPipe,
+    DialogoComponent
+
   ],
   templateUrl: './prof-notas-layout.component.html',
   styleUrl: './prof-notas-layout.component.scss'
@@ -57,7 +62,8 @@ export class ProfNotasLayoutComponent implements OnChanges {
   @Input() turmaUnidade!: TurmaUnidadeCurricular;
 
   constructor(private fichaIndividualService: FichaIndividualService,
-              private turmaUnidadeService: TurmaUnidadeCurricularService,) {
+              private turmaUnidadeService: TurmaUnidadeCurricularService,
+              private dialog: MatDialog) {
   }
 
   colunas: string[] = [
@@ -72,6 +78,30 @@ export class ProfNotasLayoutComponent implements OnChanges {
       this.dataSource.data = alocacoesParaTurma;
       console.log(this.dataSource.data);
     }
+  }
+
+  openConfirmDialog(): void {
+    const dialogRef = this.dialog.open(DialogoComponent, {
+      width: '250px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.salvarNotasFrequencias();
+
+      }
+    });
+  }
+  openConsolidarDialog(): void {
+    const dialogRef = this.dialog.open(DialogoConsolidarComponent, {
+      width: '250px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.consolidarTurma();
+      }
+    });
   }
 
   /*  getNotaReposicao(alocacao: AlocacaoDiscente): number | string {
