@@ -1,11 +1,11 @@
 <main>
-  <h1>Gerenciamento</h1>
+  <h1 class="baloes">Gerenciamento</h1>
   <section class="baloes">
     <div class="balao primeiro-balao">
-      <p>Gerenciar turmas</p>
+      <p>Gerenciar Turmas</p>
       <a>Crie, edite ou exclua turmas do sistema</a>
       <div class="btn-wrapper">
-        <button type="button" class="btn-criar">Criar turmas</button>
+        <button type="button" class="btn-notas" (click)="criarTurma()">Criar Turmas</button>
       </div>
     </div>
 
@@ -13,9 +13,12 @@
       <p>Alocar Alunos ou Professores</p>
       <a>Aloque alunos ou professores em turmas específicas</a>
       <div class="btn-wrapper">
-        <button type="button" class="btn-alocar">Alocar aluno ou professor</button>
+        <button type="button" class="btn-notas">Alocar Aluno ou Professor</button>
       </div>
     </div>
-
-    </section>
+  </section>
+  <app-gestor-criar-turma-layout class="baloes"
+                                 *ngIf="exibirCriarTurma"
+                                 (atualizarPai)="recarregarDadosPai()">
+  ></app-gestor-criar-turma-layout>
 </main>

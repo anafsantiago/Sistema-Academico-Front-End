@@ -63,6 +63,8 @@ export class LoginComponent {
             sessionStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado));
             if (usuarioLogado.papeis.some(papel => papel.descricao === 'DISCENTE')) {
               this.router.navigate(['/home-aluno']);
+            } else if (usuarioLogado.papeis.some(papel => papel.descricao === 'GESTOR')) {
+                this.router.navigate(['/home-gestor']);
             } else if (usuarioLogado.papeis.some(papel => papel.descricao === 'DOCENTE')) {
               this.router.navigate(['/home-professor']);
             }

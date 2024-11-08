@@ -25,7 +25,6 @@ import {ProfNotasLayoutComponent} from '../prof-notas-layout/prof-notas-layout.c
   styleUrl: './professor-layout.component.scss'
 })
 export class ProfessorLayoutComponent implements OnInit {
-
   alocacoesDocente: AlocacaoDocente[] = [];
   alocacoesDiscentePorTurma: Map<number, AlocacaoDiscente[]> = new Map();
   cursos: Map<number, Curso> = new Map();

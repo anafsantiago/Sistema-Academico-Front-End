@@ -116,19 +116,16 @@ export class ProfNotasLayoutComponent implements OnChanges {
     this.turmaUnidadeService.consolidarTurma(idTurma).subscribe({
       next: (response) => {
         console.log('Turma consolidada com sucesso!', response);
-        // Opcional: Exibir uma mensagem de sucesso para o usuário
       },
       error: (error) => {
         console.error('Erro ao consolidar turma', error);
-        // Opcional: Exibir uma mensagem de erro para o usuário
       },
       complete: () => {
         console.log('Processo de consolidação completo');
-        this.atualizarPai.emit(); // Emite evento para atualizar o componente pai
+        this.atualizarPai.emit();
       }
     });
   }
-
 
   validateInput(event: any) {
     const input = event.target as HTMLInputElement;
