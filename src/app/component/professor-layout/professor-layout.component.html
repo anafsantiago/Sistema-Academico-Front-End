@@ -14,7 +14,7 @@
         <button type="button"
                 class="btn-notas"
                 (click)="lancarNotasFrequencias(alocacaoDocente.turmaUnidadeCurricular)">
-          Registrar Notas e Frequência
+          Registrar Notas e Frequências
         </button>
       </div>
     </div>
@@ -28,8 +28,10 @@
     </app-prof-conteudo-layout>
     <app-prof-notas-layout
       *ngIf="exibirNotasFrequencia"
+      [alocacoesDocente]="alocacoesDocente"
       [alocacoesDiscente]="alocacoesDiscentePorTurma"
-      [turmaUnidade]="turmaSelecionada">
+      [turmaUnidade]="turmaSelecionada"
+      (atualizarPai)="recarregarDadosPai()">
     </app-prof-notas-layout>
   </div>
 </main>

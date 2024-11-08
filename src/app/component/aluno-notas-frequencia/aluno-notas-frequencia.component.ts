@@ -22,11 +22,11 @@ export class AlunoNotasFrequenciaComponent {
   @Input() nomeUnidadeCurricular!: string;
   @Input() situacaoAlocacao!: string;
 
-  getNotaReposicao(): number | string {
+/*  getNotaReposicao(): number | string {
     const reposicaoNota = this.fichaIndividual.notas.find(nota => nota.reposicao);
     if (reposicaoNota) {
       return reposicaoNota.valor;
     }
     return 'N/A'
-  }
+  }*/
 }

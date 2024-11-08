@@ -13,7 +13,7 @@ import {
   MatTable,
   MatTableDataSource
 } from '@angular/material/table';
-import {UpperCasePipe} from '@angular/common';
+import {DecimalPipe, UpperCasePipe} from '@angular/common';
 import {AlocacaoDiscente} from '../../model/alocacaoDiscente';
 import {TurmaUnidadeCurricular} from '../../model/turmaUnidadeCurricular';
 
@@ -34,7 +34,8 @@ import {TurmaUnidadeCurricular} from '../../model/turmaUnidadeCurricular';
     MatRowDef,
     MatTable,
     UpperCasePipe,
-    MatHeaderCellDef
+    MatHeaderCellDef,
+    DecimalPipe
   ],
   templateUrl: './prof-conteudo-layout.component.html',
   styleUrl: './prof-conteudo-layout.component.scss'

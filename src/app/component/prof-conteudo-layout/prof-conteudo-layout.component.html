@@ -15,13 +15,13 @@
         <ng-container matColumnDef="notaFinal">
           <th mat-header-cell *matHeaderCellDef> Nota Final</th>
           <td mat-cell
-              *matCellDef="let element"> {{ element.fichaIndividualAlocacaoDiscente.resultadoFinal != 0 ? element.fichaIndividualAlocacaoDiscente.resultadoFinal : 'N/A' }}
+              *matCellDef="let element"> {{ element.fichaIndividualAlocacaoDiscente.resultadoFinal != 0 ? (element.fichaIndividualAlocacaoDiscente.resultadoFinal | number: '1.1-1') : 'N/A' }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="porcentagemPresenca">
           <th mat-header-cell *matHeaderCellDef> Porcentagem de Frequência</th>
-          <td mat-cell *matCellDef="let element"> {{ element.fichaIndividualAlocacaoDiscente.porcentagemFrequencia }}%
+          <td mat-cell *matCellDef="let element"> {{ element.fichaIndividualAlocacaoDiscente.porcentagemFrequencia | number: '1.0-0' }}%
           </td>
         </ng-container>
 

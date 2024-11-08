@@ -45,8 +45,8 @@ export class UcConteudoComponent implements OnInit {
     }
   }
 
-  getNotaReposicao(): number | string {
+/*  getNotaReposicao(): number | string {
     const reposicaoNota = this.fichaIndividual.notas.find(nota => nota.reposicao);
     return reposicaoNota ? reposicaoNota.valor : 'N/A';
-  }
+  }*/
 }

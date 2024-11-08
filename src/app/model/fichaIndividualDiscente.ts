@@ -1,8 +1,9 @@
-import {Nota} from './nota';
-
 export interface FichaIndividualDiscente {
   id: number;
-  notas: Nota[];
+  notaUnidade1: number;
+  notaUnidade2: number;
+  notaUnidade3: number;
+  notaReposicao: number;
   faltas: number;
   resultadoFinal: number;
   porcentagemFrequencia: number;

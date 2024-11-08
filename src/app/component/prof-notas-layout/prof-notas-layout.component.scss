@@ -1,12 +1,13 @@
 .custom-table {
   width: 80%; /* Ajusta a largura da tabela */
   margin: 0 auto; /* Centraliza a tabela na tela */
-  border-collapse: collapse; /* Faz com que as bordas das células se fundam, eliminando o espaçamento entre elas */
+  border-collapse: collapse; /* Elimina o espaçamento entre as bordas das células */
 }
 
 .custom-table th, .custom-table td {
   font-size: 14px; /* Reduz o tamanho da fonte nas células da tabela */
   padding: 4px; /* Reduz o espaçamento interno entre o conteúdo e as bordas das células */
+  border: 1px solid #ccc; /* Adiciona bordas para separar as células */
 }
 
 .custom-table mat-header-row {
@@ -21,7 +22,28 @@
 }
 
 .custom-table mat-form-field input {
-  font-size: 20px; /* Ajusta o tamanho da fonte dentro do input */
+  font-size: 18px; /* Ajusta o tamanho da fonte dentro do input */
   padding: 4px; /* Ajusta o espaçamento interno do input */
   height: 24px; /* Ajusta a altura do input */
 }
+
+.btn-notas {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+  background-color: #01223F;
+  color: white;
+  margin-top: 15px;
+}
+
+/*input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield; !* Para navegadores Firefox *!
+}*/

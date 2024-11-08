@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForOf, NgIf, UpperCasePipe} from '@angular/common';
 import {UnidadeCurricular} from '../../model/unidadeCurricular';
-import {FichaIndividualDiscente} from '../../model/fichaIndividualDiscente';
 import {AlocacaoDocenteService} from '../../service/alocacao-docente/alocacao-docente.service';
 import {AlocacaoDocente} from '../../model/alocacaoDocente';
 import {Curso} from '../../model/curso';
@@ -34,7 +33,6 @@ export class ProfessorLayoutComponent implements OnInit {
   exibirDesempenhoTurma: boolean = false;
   exibirNotasFrequencia: boolean = false;
   turmaSelecionada!: TurmaUnidadeCurricular;
-  alocacaoDiscente: AlocacaoDiscente[] = [];
 
   constructor(private alocacaoDocenteService: AlocacaoDocenteService,
               private alocacaoDiscenteService: AlocacaoDiscenteService,
@@ -42,6 +40,10 @@ export class ProfessorLayoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.carregarDados();
+  }
+
+  carregarDados(): void {
     const usuarioLogado = sessionStorage.getItem('usuarioLogado');
     if (usuarioLogado) {
       const usuario = JSON.parse(usuarioLogado);
@@ -84,35 +86,36 @@ export class ProfessorLayoutComponent implements OnInit {
   }
 
   mostrarDesempenhoTurma(turmaUnidade: TurmaUnidadeCurricular): void {
-/*    const idTurma = turmaUnidade.id;
-
-    const alocacaoDiscente = this.alocacoesDiscentePorTurma.get(idTurma);
-    if (alocacaoDiscente) {
-      this.alocacaoDiscente = alocacaoDiscente;
+    if (this.exibirDesempenhoTurma && this.turmaSelecionada === turmaUnidade) {
+      // Se já estiver mostrando o desempenho da turma selecionada, oculta
+      this.exibirDesempenhoTurma = false;
     } else {
-      console.log('Nenhuma alocação de discente encontrada para essa turma.');
-    }*/
-
-    if (this.turmaSelecionada === turmaUnidade) {
-      this.exibirDesempenhoTurma = !this.exibirDesempenhoTurma;
-    } else {
+      // Caso contrário, ativa a exibição de desempenho e desativa notas/frequência
       this.turmaSelecionada = turmaUnidade;
       this.exibirDesempenhoTurma = true;
+      this.exibirNotasFrequencia = false;
     }
   }
 
   lancarNotasFrequencias(turmaUnidade: TurmaUnidadeCurricular): void {
-
-    if (this.turmaSelecionada === turmaUnidade) {
-      this.exibirNotasFrequencia = !this.exibirNotasFrequencia;
+    if (this.exibirNotasFrequencia && this.turmaSelecionada === turmaUnidade) {
+      // Se já estiver mostrando notas e frequência da turma selecionada, oculta
+      this.exibirNotasFrequencia = false;
     } else {
+      // Caso contrário, ativa a exibição de notas/frequência e desativa desempenho
       this.turmaSelecionada = turmaUnidade;
       this.exibirNotasFrequencia = true;
+      this.exibirDesempenhoTurma = false;
     }
   }
 
   getCursoPorIdTurma(idTurma: number): Curso | undefined {
     return this.cursos.get(idTurma);
+  }
+
+  recarregarDadosPai(): void {
+    this.carregarDados();
+    this.lancarNotasFrequencias(this.turmaSelecionada)
   }
 
 }

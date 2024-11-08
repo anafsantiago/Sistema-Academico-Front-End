@@ -1,75 +1,88 @@
- <mat-card appearance="outlined">
-    <mat-card-header style="justify-content: center; font-weight: bold;">
-      {{ turmaUnidade.unidadeCurricular.nomeUnidadeCurricular | uppercase }}
-    </mat-card-header>
-    <mat-card-content>
-      <h6 class="titulo" style="justify-content: center; font-weight: bold ">Lançar Notas e Frequências:</h6>
-      <table mat-table [dataSource]="dataSource" class="custom-table">
+<mat-card appearance="outlined">
+  <mat-card-header style="justify-content: center; font-weight: bold;">
+    {{ turmaUnidade.unidadeCurricular.nomeUnidadeCurricular | uppercase }}
+  </mat-card-header>
+  <mat-card-content>
+    <h6 class="titulo" style="justify-content: center; font-weight: bold">Lançar Notas e Frequências:</h6>
+    <table mat-table [dataSource]="dataSource" class="custom-table">
 
-        <ng-container matColumnDef="discente">
-          <th mat-header-cell *matHeaderCellDef> Discente</th>
-          <td mat-cell *matCellDef="let element"> {{ element.discente.pessoa.nome }}</td>
-        </ng-container>
+      <ng-container matColumnDef="discente">
+        <th mat-header-cell *matHeaderCellDef> Discente</th>
+        <td mat-cell *matCellDef="let element"> {{ element.discente.pessoa.nome }}</td>
+      </ng-container>
 
-        <ng-container matColumnDef="unidade1">
-          <th mat-header-cell *matHeaderCellDef> Unidade 1</th>
-          <td mat-cell *matCellDef="let element">
-            <mat-form-field appearance="outline">
-              <input matInput [(ngModel)]="element.fichaIndividualAlocacaoDiscente.notas[0].valor">
-            </mat-form-field>
-          </td>
-        </ng-container>
+      <ng-container matColumnDef="unidade1">
+        <th mat-header-cell *matHeaderCellDef> Unidade 1</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-form-field appearance="outline">
+            <input matInput type="text" maxlength="3"
+                   [(ngModel)]="element.fichaIndividualAlocacaoDiscente.notaUnidade1"
+                   (input)="validateInput($event)">
+          </mat-form-field>
+        </td>
+      </ng-container>
 
-        <ng-container matColumnDef="unidade2">
-          <th mat-header-cell *matHeaderCellDef> Unidade 2</th>
-          <td mat-cell *matCellDef="let element">
-            <mat-form-field appearance="outline">
-              <input matInput [(ngModel)]="element.fichaIndividualAlocacaoDiscente.notas[1]">
-            </mat-form-field>
-          </td>
-        </ng-container>
+      <ng-container matColumnDef="unidade2">
+        <th mat-header-cell *matHeaderCellDef> Unidade 2</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-form-field appearance="outline">
+            <input matInput type="text" maxlength="3" placeholder="0.0"
+                   [(ngModel)]="element.fichaIndividualAlocacaoDiscente.notaUnidade2"
+                   (input)="validateInput($event)">
+          </mat-form-field>
+        </td>
+      </ng-container>
 
-        <ng-container matColumnDef="unidade3">
-          <th mat-header-cell *matHeaderCellDef> Unidade 3</th>
-          <td mat-cell *matCellDef="let element">
-            <mat-form-field appearance="outline">
-              <input matInput [(ngModel)]="element.fichaIndividualAlocacaoDiscente.notas[2]">
-            </mat-form-field>
-          </td>
-        </ng-container>
+      <ng-container matColumnDef="unidade3">
+        <th mat-header-cell *matHeaderCellDef> Unidade 3</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-form-field appearance="outline">
+            <input matInput type="text" maxlength="3" placeholder="0.0"
+                   [(ngModel)]="element.fichaIndividualAlocacaoDiscente.notaUnidade3"
+                   (input)="validateInput($event)">
+          </mat-form-field>
+        </td>
+      </ng-container>
 
-        <ng-container matColumnDef="reposicao">
-          <th mat-header-cell *matHeaderCellDef> Reposição</th>
-          <td mat-cell *matCellDef="let element">
-            <mat-form-field appearance="outline">
-              <input matInput [(ngModel)]="element.fichaIndividualAlocacaoDiscente.reposicao">
-            </mat-form-field>
-          </td>
-        </ng-container>
+      <ng-container matColumnDef="reposicao">
+        <th mat-header-cell *matHeaderCellDef> Reposição</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-form-field appearance="outline">
+            <input matInput type="text" maxlength="3" placeholder="0.0"
+                   [(ngModel)]="element.fichaIndividualAlocacaoDiscente.notaReposicao"
+                   (input)="validateInput($event)">
+          </mat-form-field>
+        </td>
+      </ng-container>
 
-        <ng-container matColumnDef="notaFinal">
-          <th mat-header-cell *matHeaderCellDef> Nota Final</th>
-          <td mat-cell *matCellDef="let element">
-            {{ element.fichaIndividualAlocacaoDiscente.resultadoFinal != 0 ? element.fichaIndividualAlocacaoDiscente.resultadoFinal : 'N/A' }}
-          </td>
-        </ng-container>
+      <ng-container matColumnDef="notaFinal">
+        <th mat-header-cell *matHeaderCellDef> Nota Final</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.fichaIndividualAlocacaoDiscente.resultadoFinal != 0 ? (element.fichaIndividualAlocacaoDiscente.resultadoFinal | number: '1.1-1') : 'N/A' }}
+        </td>
+      </ng-container>
 
-        <ng-container matColumnDef="faltas">
-          <th mat-header-cell *matHeaderCellDef > Faltas</th>
-          <td mat-cell *matCellDef="let element">
-            <mat-form-field appearance="outline">
-              <input matInput type="number" [(ngModel)]="element.fichaIndividualAlocacaoDiscente.faltas">
-            </mat-form-field>
-          </td>
-        </ng-container>
+      <ng-container matColumnDef="faltas">
+        <th mat-header-cell *matHeaderCellDef> Faltas</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-form-field appearance="outline">
+            <input matInput type="number" [(ngModel)]="element.fichaIndividualAlocacaoDiscente.faltas" min="0">
+          </mat-form-field>
+        </td>
+      </ng-container>
 
-        <ng-container matColumnDef="situacaoAluno">
-          <th mat-header-cell *matHeaderCellDef> Situação do Aluno</th>
-          <td mat-cell *matCellDef="let element"> {{ element.situacaoAlocacaoDiscente.descricao }}</td>
-        </ng-container>
+      <ng-container matColumnDef="situacaoAluno">
+        <th mat-header-cell *matHeaderCellDef> Situação do Aluno</th>
+        <td mat-cell *matCellDef="let element"> {{ element.situacaoAlocacaoDiscente.descricao }}</td>
+      </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="colunas"></tr>
-        <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
-      </table>
-    </mat-card-content>
-  </mat-card>
+      <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+      <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
+    </table>
+    <div style="display: flex; justify-content: flex-end;">
+      <button type="button" class="btn-notas" (click)="salvarNotasFrequencias()">
+        Salvar
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
